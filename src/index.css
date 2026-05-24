@@ -274,6 +274,9 @@ p {
 }
 
 .btn--active {
+  background: linear-gradient(145deg, #3ca56e, #2d7d54);
+  color: #e9fff3;
+  border-color: rgba(86, 204, 139, 0.6);
   box-shadow: 0 0 0 1px rgba(86, 204, 139, 0.4) inset;
 }
 

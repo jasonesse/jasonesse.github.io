@@ -171,9 +171,9 @@ export function ActivityCard({
           className={`btn btn--keep ${isKept ? "btn--active" : ""} ${justKept ? "btn--celebrate" : ""}`}
           onClick={onKeep}
           aria-pressed={isKept}
-          title={isKept ? "Return this activity to unkept" : "Keep this activity"}
+          title={isKept ? "Undo keeping this activity" : "Keep this activity"}
         >
-          {isKept ? "Return" : "Keep"}
+          {isKept ? "Undo" : "Keep"}
         </button>
         <button
           type="button"
