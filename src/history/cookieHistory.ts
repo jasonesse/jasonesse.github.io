@@ -109,3 +109,26 @@ export function getHistoryByDate(date: string): DayHistoryRecord[] {
   const store = parseStore();
   return store.recordsByDate[date] ?? [];
 }
+
+export function deleteHistoryRecordByIndex(date: string, index: number): void {
+  const store = parseStore();
+  const existing = store.recordsByDate[date] ?? [];
+  if (index < 0 || index >= existing.length) return;
+
+  const next = existing.filter((_, idx) => idx !== index);
+  if (next.length === 0) {
+    delete store.recordsByDate[date];
+  } else {
+    store.recordsByDate[date] = next;
+  }
+
+  persistStore(store);
+}
+
+export function deleteHistoryByDate(date: string): void {
+  const store = parseStore();
+  if (!store.recordsByDate[date]) return;
+
+  delete store.recordsByDate[date];
+  persistStore(store);
+}

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ScorePanel } from "../components/ScorePanel";
 import { useRunStore } from "../state/useRunStore";
 import { getEvents } from "../analytics/eventTracker";
+import { clearRecentActivitiesForCity } from "../history/recentActivityHistory";
 
 export function ResultPage() {
   const { run, keptIds, clearRun } = useRunStore();
@@ -18,6 +19,14 @@ export function ResultPage() {
   ).length;
 
   function handlePlayAgain() {
+    clearRun();
+    nav("/");
+  }
+
+  function handleStartOver() {
+    if (run) {
+      clearRecentActivitiesForCity(run.city);
+    }
     clearRun();
     nav("/");
   }
@@ -48,9 +57,14 @@ export function ResultPage() {
         ))}
       </ul>
 
-      <button className="btn btn--primary btn--large" onClick={handlePlayAgain}>
-        Play Again
-      </button>
+      <div className="result-page__actions">
+        <button className="btn btn--primary btn--large" onClick={handlePlayAgain}>
+          Play Again
+        </button>
+        <button className="btn btn--secondary btn--large" onClick={handleStartOver}>
+          Start Over (Clear Cache)
+        </button>
+      </div>
     </main>
   );
 }

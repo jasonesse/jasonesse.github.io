@@ -58,3 +58,12 @@ export function rememberActivitiesForCity(city: string, activityIds: string[]): 
   store.byCity[key] = deduped;
   persistStore(store);
 }
+
+export function clearRecentActivitiesForCity(city: string): void {
+  const key = cityKey(city);
+  const store = parseStore();
+  if (!store.byCity[key]) return;
+
+  delete store.byCity[key];
+  persistStore(store);
+}
