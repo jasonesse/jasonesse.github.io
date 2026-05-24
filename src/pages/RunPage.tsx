@@ -34,6 +34,11 @@ export function RunPage() {
     return () => window.clearTimeout(timeout);
   }, [toast]);
 
+  useEffect(() => {
+    if (!run) return;
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [run]);
+
   if (!run) {
     return (
       <main className="run-page">
@@ -102,7 +107,8 @@ export function RunPage() {
       activityId: activity.id,
       timeSlot: activity.timeSlot,
     });
-    const query = encodeURIComponent(`${activity.finalText} ${run?.city ?? ""}`);
+    const searchText = activity.shortText?.trim() || activity.finalText;
+    const query = encodeURIComponent(`${searchText} ${run?.city ?? ""}`);
     window.open(`https://www.google.com/search?q=${query}`, "_blank", "noopener,noreferrer");
   }
 

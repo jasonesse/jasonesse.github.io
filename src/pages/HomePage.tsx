@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CitySelector } from "../components/CitySelector";
 import { ChaosSlider } from "../components/ChaosSlider";
@@ -29,6 +29,8 @@ export function HomePage() {
   const [loading, setLoading] = useState(false);
   const [setupStep, setSetupStep] = useState(1);
   const [error, setError] = useState<string | null>(null);
+  const step2Ref = useRef<HTMLElement | null>(null);
+  const step3Ref = useRef<HTMLDivElement | null>(null);
   const setRun = useRunStore((s) => s.setRun);
   const nav = useNavigate();
 
@@ -52,6 +54,17 @@ export function HomePage() {
       cancelled = true;
     };
   }, [city, setPreferredCity]);
+
+  useEffect(() => {
+    const target =
+      setupStep >= 3 ? step3Ref.current : setupStep >= 2 ? step2Ref.current : null;
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [setupStep]);
 
   function setGroupCount(key: keyof GroupDetails, value: string) {
     const parsed = Number(value);
@@ -133,7 +146,7 @@ export function HomePage() {
         </section>
 
         {setupStep >= 2 && (
-          <section className="home-step is-visible">
+          <section ref={step2Ref} className="home-step is-visible">
             <p className="home-step__title">Step 2: Tune chaos</p>
             <p className="home-step__hint">Low is smooth. High is unpredictable.</p>
             <ChaosSlider value={chaos} onChange={setChaos} />
@@ -152,7 +165,7 @@ export function HomePage() {
         )}
 
         {setupStep >= 3 && (
-          <div className="group-details home-step is-visible">
+          <div ref={step3Ref} className="group-details home-step is-visible">
             <p className="home-step__title">Step 3: Group setup</p>
             <p className="home-step__hint">We filter activities for your crew.</p>
             <p className="group-details__title">Group Details</p>
