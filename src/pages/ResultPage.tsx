@@ -185,6 +185,16 @@ export function ResultPage() {
               <li>
                 Mode: <strong>{record.chaosLevel ?? 20}</strong>
               </li>
+              {record.hubZoneName && (
+                <li>
+                  Hub Zone: <strong>{record.hubZoneName}</strong>
+                </li>
+              )}
+              {record.radius && (
+                <li>
+                  Radius: <strong>{record.radius.charAt(0).toUpperCase() + record.radius.slice(1)}</strong>
+                </li>
+              )}
               <li>
                 Activities kept: <strong>{kept}/{total}</strong>
               </li>

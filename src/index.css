@@ -363,8 +363,95 @@ p {
   font-size: 0.88rem;
 }
 
+.home-step__title--spaced {
+  margin-top: 1.2rem;
+}
+
 .home-step__actions {
   margin-top: 0.6rem;
+}
+
+/* ── Radius Selector ────────────────────────────────────────────── */
+
+.radius-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.radius-option {
+  flex: 1 1 0;
+  min-width: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.55rem 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--color-muted);
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.radius-option:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.radius-option.is-active {
+  border-color: var(--color-accent);
+  background: rgba(244, 154, 90, 0.12);
+  color: var(--color-text);
+}
+
+.radius-option__label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.radius-option__hint {
+  font-size: 0.72rem;
+  color: inherit;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* ── Hub Zone Picker ─────────────────────────────────────────────── */
+
+.hub-zone-picker {
+  margin-top: 0.8rem;
+}
+
+.hub-zone-select {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+  transition: border-color 0.15s;
+}
+
+.hub-zone-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.hub-zone-select option {
+  background: #1c2633;
+  color: var(--color-text);
 }
 
 .group-details {
@@ -515,6 +602,10 @@ p {
 /* Run + cards */
 .run-page__title {
   font-size: 1.45rem;
+  color: var(--color-accent);
+}
+
+.run-page__zone-badge {
   color: var(--color-accent);
 }
 
@@ -1064,4 +1155,176 @@ p {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ─── Iconic Mode Toggle ────────────────────────────────────────────────────── */
+.iconic-toggle {
+  margin-top: 1rem;
+}
+
+.iconic-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.54rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(244, 154, 90, 0.36);
+  background: rgba(244, 154, 90, 0.06);
+  color: #e0c09a;
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms, border-color 160ms, color 160ms;
+}
+
+.iconic-toggle__btn:hover {
+  background: rgba(244, 154, 90, 0.14);
+  border-color: rgba(244, 154, 90, 0.6);
+}
+
+.iconic-toggle__btn.is-active {
+  background: linear-gradient(145deg, rgba(244, 154, 90, 0.22), rgba(244, 154, 90, 0.12));
+  border-color: rgba(244, 154, 90, 0.72);
+  color: #f9c896;
+}
+
+.iconic-toggle__icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.iconic-toggle__hint {
+  margin-top: 0.42rem;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+/* ─── Inline Explore button inside More section ─────────────────────────────── */
+.activity-card__explore-inline {
+  align-self: flex-start;
+  font-size: 0.84rem;
+  padding: 0.36rem 0.9rem;
+  min-height: unset;
+  border-radius: 8px;
+}
+
+/* ─── Iconic Run Page ───────────────────────────────────────────────────────── */
+.iconic-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.iconic-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.iconic-page__back {
+  align-self: flex-start;
+  font-size: 0.86rem;
+  padding: 0.36rem 0.88rem;
+  min-height: unset;
+}
+
+.iconic-page__title {
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
+}
+
+.iconic-page__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.iconic-page__loading {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+/* ─── Iconic Zone Section ───────────────────────────────────────────────────── */
+.iconic-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.iconic-zone__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.iconic-zone__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ─── Iconic Card ───────────────────────────────────────────────────────────── */
+.iconic-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.iconic-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.iconic-card__name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+  font-family: var(--font-title);
+}
+
+.iconic-card__stars {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.iconic-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.iconic-card__tag {
+  padding: 0.18rem 0.52rem;
+  border-radius: 999px;
+  background: rgba(76, 192, 206, 0.1);
+  border: 1px solid rgba(76, 192, 206, 0.28);
+  color: #a8e8f0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.iconic-card__explore {
+  align-self: flex-start;
+  font-size: 0.84rem;
+  padding: 0.36rem 0.9rem;
+  min-height: unset;
+  border-radius: 8px;
 }

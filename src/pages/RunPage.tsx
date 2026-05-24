@@ -4,7 +4,7 @@ import { DayTimeline } from "../components/DayTimeline";
 import { ControlBar } from "../components/ControlBar";
 import { CityImage } from "../components/CityImage";
 import { remapActivity } from "../engine/activityMapper";
-import { loadCity } from "../engine/cityLoader";
+import { loadCity, loadActivities } from "../engine/cityLoader";
 import { useRunStore } from "../state/useRunStore";
 import { trackEvent } from "../analytics/eventTracker";
 import { saveKeptRunForToday } from "../history/cookieHistory";
@@ -56,21 +56,24 @@ export function RunPage() {
   async function handleReroll(activity: GeneratedActivity) {
     if (!run) return;
     try {
-      const deck = await loadCity(run.city);
+      const [cityData, activities] = await Promise.all([
+        loadCity(run.city),
+        loadActivities(),
+      ]);
       const ignoredIds = getIgnoredActivityIdsByCity(run.city);
-      // Exclude every activity currently in the run so the reroll never
-      // produces a duplicate ID (which would break the "keep" highlight).
       const usedIds = Array.from(
         new Set([...run.activities.map((a) => a.id), ...recentActivityIds])
       );
       const updated = remapActivity(
-        deck.activityDeck,
+        cityData,
+        activities,
         activity.timeSlot,
         usedIds,
         run.chaosLevel,
         run.groupDetails,
-        ignoredIds,
-        true
+        run.radius ?? "nearby",
+        run.hubZoneId ?? cityData.zones[0].id,
+        ignoredIds
       );
       if (updated) {
         rerollActivity(updated);
@@ -128,7 +131,10 @@ export function RunPage() {
     setToast("Activity Hidden");
 
     try {
-      const deck = await loadCity(run.city);
+      const [cityData, activities] = await Promise.all([
+        loadCity(run.city),
+        loadActivities(),
+      ]);
       const usedIds = run.activities
         .map((a) => a.id)
         .filter((id) => id !== activity.id);
@@ -136,13 +142,15 @@ export function RunPage() {
       const ignoredIds = getIgnoredActivityIdsByCity(run.city);
 
       const updated = remapActivity(
-        deck.activityDeck,
+        cityData,
+        activities,
         activity.timeSlot,
         excludedIds,
         run.chaosLevel,
         run.groupDetails,
-        ignoredIds,
-        true
+        run.radius ?? "nearby",
+        run.hubZoneId ?? cityData.zones[0].id,
+        ignoredIds
       );
 
       if (updated) {
@@ -169,7 +177,20 @@ export function RunPage() {
 
   return (
     <main className="run-page">
-      <h2 className="run-page__title">{run.city} Run</h2>
+      <h2 className="run-page__title">
+        {run.city} Run
+        {run.iconicLandmarkName ? (
+          <span className="run-page__iconic-badge">
+            {" — "}{run.iconicLandmarkName}
+          </span>
+        ) : (
+          (run.radius === "local" || run.radius === "nearby") && run.hubZoneName && (
+            <span className="run-page__zone-badge">
+              {" — "}{run.hubZoneName}{run.radius === "nearby" ? " (& nearby)" : ""}
+            </span>
+          )
+        )}
+      </h2>
       <CityImage city={run.city} className="run-page__city-image" alt={`${run.city} city preview`} />
 
       <DayTimeline

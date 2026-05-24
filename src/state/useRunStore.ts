@@ -2,7 +2,8 @@ import { create } from "zustand";
 import type { DayRun, GeneratedActivity, TimeSlot } from "../types";
 import { rememberActivitiesForCity } from "../history/recentActivityHistory";
 
-const STORAGE_KEY = "crg_current_session_v1";
+// Bump key to v2 since DayRun shape has changed (hubZoneId, radius fields).
+const STORAGE_KEY = "crg_current_session_v2";
 
 type PersistedRunSession = {
   sessionDate: string;

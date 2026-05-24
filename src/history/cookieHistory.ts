@@ -13,6 +13,8 @@ export type DayHistoryRecord = {
   keptItems: KeptItem[];
   chaosLevel?: number;
   totalActivities?: number;
+  hubZoneName?: string;
+  radius?: string;
 };
 
 type HistoryStore = {
@@ -109,6 +111,8 @@ export function saveKeptRunForToday(run: DayRun, keptIds: Set<string>): void {
     keptItems,
     chaosLevel: run.chaosLevel,
     totalActivities: run.activities.length,
+    hubZoneName: run.hubZoneName,
+    radius: run.radius,
   };
 
   store.recordsByDate[date] = [...existing, record];

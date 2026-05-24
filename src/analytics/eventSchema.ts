@@ -4,7 +4,12 @@ export type EventType =
   | "ACTIVITY_KEPT"
   | "ACTIVITY_REROLLED"
   | "ACTIVITY_EXPLORED"
-  | "RUN_COMPLETED";
+  | "RUN_COMPLETED"
+  // V2 events
+  | "HUB_ZONE_SELECTED"
+  | "RADIUS_SELECTED"
+  | "LANDMARK_USED"
+  | "ZONE_VISITED";
 
 export type AnalyticsEvent = {
   id: string;
@@ -15,5 +20,11 @@ export type AnalyticsEvent = {
     chaosLevel?: number;
     activityId?: string;
     timeSlot?: string;
+    // V2 fields
+    cityId?: string;
+    hubZoneId?: string;
+    radius?: string;
+    zoneId?: string;
+    landmarkId?: string;
   };
 };

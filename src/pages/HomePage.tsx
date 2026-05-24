@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CitySelector } from "../components/CitySelector";
 import { ChaosSlider } from "../components/ChaosSlider";
 import { CityImage } from "../components/CityImage";
-import { loadCity } from "../engine/cityLoader";
-import { generateDay } from "../engine/generateDay";
+import { loadCity, loadActivities } from "../engine/cityLoader";
+import { generateDayV2 } from "../engine/experienceEngine";
 import { useRunStore } from "../state/useRunStore";
 import { useUserStore } from "../state/useUserStore";
 import { trackEvent } from "../analytics/eventTracker";
-import type { GroupDetails } from "../types";
+import type { AdventureRadius, GroupDetails } from "../types";
 import { getIgnoredActivityIdsByCity } from "../history/ignoredActivitiesCookie";
 import { getRecentActivityIdsByCity } from "../history/recentActivityHistory";
 import { getFallbackCityByKey, loadCityCatalog } from "../cities/cityCatalog";
@@ -17,9 +17,16 @@ export function HomePage() {
   const city = useUserStore((s) => s.preferredCity);
   const chaos = useUserStore((s) => s.defaultChaos);
   const groupDetails = useUserStore((s) => s.defaultGroupDetails);
+  const radius = useUserStore((s) => s.adventureRadius);
+  const preferredHubZoneId = useUserStore((s) => s.preferredHubZoneId);
+  const iconicMode = useUserStore((s) => s.iconicMode);
   const setPreferredCity = useUserStore((s) => s.setPreferredCity);
   const setDefaultChaos = useUserStore((s) => s.setDefaultChaos);
   const setDefaultGroupDetails = useUserStore((s) => s.setDefaultGroupDetails);
+  const setAdventureRadius = useUserStore((s) => s.setAdventureRadius);
+  const setPreferredHubZoneId = useUserStore((s) => s.setPreferredHubZoneId);
+  const setIconicMode = useUserStore((s) => s.setIconicMode);
+  const [zones, setZones] = useState<{ id: string; name: string }[]>([]);
   const [cities, setCities] = useState(() => {
     const fallback = getFallbackCityByKey(city);
     return fallback ? [{ key: fallback.key, label: fallback.label }] : [];
@@ -31,6 +38,18 @@ export function HomePage() {
   const step3Ref = useRef<HTMLDivElement | null>(null);
   const setRun = useRunStore((s) => s.setRun);
   const nav = useNavigate();
+
+  // Load zones for the current city so the neighbourhood dropdown is populated.
+  useEffect(() => {
+    let cancelled = false;
+    loadCity(city)
+      .then((data) => {
+        if (cancelled) return;
+        setZones(data.zones.map((z) => ({ id: z.id, name: z.name })));
+      })
+      .catch(() => setZones([]));
+    return () => { cancelled = true; };
+  }, [city]);
 
   useEffect(() => {
     let cancelled = false;
@@ -84,17 +103,49 @@ export function HomePage() {
       return;
     }
     try {
-      const deck = await loadCity(city);
+      const [cityData, activities] = await Promise.all([
+        loadCity(city),
+        loadActivities(),
+      ]);
       const ignoredIds = getIgnoredActivityIdsByCity(city);
       const recentIds = getRecentActivityIdsByCity(city, 30);
-      const day = generateDay(deck, chaos, groupDetails, ignoredIds, recentIds);
+      const day = generateDayV2(
+        cityData,
+        activities,
+        chaos,
+        groupDetails,
+        radius,
+        ignoredIds,
+        recentIds,
+        preferredHubZoneId ?? undefined,
+        iconicMode
+      );
       if (day.activities.length === 0) {
-        setError("No matches yet. Try changing chaos or your group mix.");
+        setError("No activities generated. Try adjusting chaos or radius.");
         setLoading(false);
         return;
       }
       setRun(day);
-      trackEvent("RUN_GENERATED", { city, chaosLevel: chaos });
+      trackEvent("RUN_GENERATED", {
+        city: cityData.city,
+        cityId: cityData.cityId,
+        chaosLevel: chaos,
+        hubZoneId: day.hubZoneId,
+        radius,
+      });
+      if (day.hubZoneId) {
+        trackEvent("HUB_ZONE_SELECTED", {
+          city: cityData.city,
+          cityId: cityData.cityId,
+          hubZoneId: day.hubZoneId,
+          radius,
+        });
+      }
+      trackEvent("RADIUS_SELECTED", {
+        city: cityData.city,
+        cityId: cityData.cityId,
+        radius,
+      });
       nav("/run");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to load city data.");
@@ -125,9 +176,11 @@ export function HomePage() {
             cities={cities}
             onChange={(nextCity) => {
               setPreferredCity(nextCity);
+              setPreferredHubZoneId(null);
               setSetupStep((s) => Math.max(s, 2));
             }}
           />
+
           {setupStep < 2 && (
             <div className="home-step__actions">
               <button
@@ -146,6 +199,59 @@ export function HomePage() {
             <p className="home-step__title">Step 2: Tune chaos</p>
             <p className="home-step__hint">Low is smooth. High is unpredictable.</p>
             <ChaosSlider value={chaos} onChange={setDefaultChaos} />
+
+            <p className="home-step__title home-step__title--spaced">Adventure radius</p>
+            <p className="home-step__hint">How far from your hub zone should the day reach?</p>
+            <div className="radius-selector">
+              {(
+                [
+                  { value: "local", label: "🏠 Local", hint: "One neighbourhood only" },
+                  { value: "nearby", label: "🚶 Nearby", hint: "Hub + adjacent areas" },
+                  { value: "citywide", label: "🌆 Citywide", hint: "Anywhere in the city" },
+                ] as { value: AdventureRadius; label: string; hint: string }[]
+              ).map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  className={`radius-option${radius === opt.value ? " is-active" : ""}`}
+                  onClick={() => setAdventureRadius(opt.value)}
+                  title={opt.hint}
+                >
+                  <span className="radius-option__label">{opt.label}</span>
+                  <span className="radius-option__hint">{opt.hint}</span>
+                </button>
+              ))}
+            </div>
+
+            {(radius === "local" || radius === "nearby") && zones.length > 0 && (
+              <div className="hub-zone-picker">
+                <p className="home-step__hint">Starting neighbourhood</p>
+                <select
+                  className="hub-zone-select"
+                  value={preferredHubZoneId ?? ""}
+                  onChange={(e) => setPreferredHubZoneId(e.target.value || null)}
+                >
+                  <option value="">— Random —</option>
+                  {zones.map((z) => (
+                    <option key={z.id} value={z.id}>{z.name}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+
+            <div className="iconic-toggle">
+              <button
+                type="button"
+                className={`iconic-toggle__btn${iconicMode ? " is-active" : ""}`}
+                onClick={() => setIconicMode(!iconicMode)}
+                title="Inject iconic landmark names into your day"
+              >
+                <span className="iconic-toggle__icon">{iconicMode ? "★" : "☆"}</span>
+                <span className="iconic-toggle__label">{iconicMode ? "Iconic Places on" : "Iconic Places"}</span>
+              </button>
+            </div>
+
             {setupStep < 3 && (
               <div className="home-step__actions">
                 <button

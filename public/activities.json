@@ -1,0 +1,2042 @@
+[
+  {
+    "id": "morning-walk",
+    "category": "exploration",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "residential",
+      "parks"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning walk",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Take a relaxed morning walk around {landmark} and ease into the day.",
+        "withoutLandmark": "Take a relaxed morning walk through {zone} and let the neighbourhood come to life around you."
+      },
+      "medium": {
+        "withLandmark": "Head toward {landmark} and wander the streets nearby as the city wakes up.",
+        "withoutLandmark": "Explore the {zone} streets without a fixed route and see where the morning opens up."
+      },
+      "high": {
+        "withLandmark": "Start near {landmark} and follow whatever catches your eye from there.",
+        "withoutLandmark": "Step out the door and walk without deciding where you're going."
+      }
+    },
+    "moreText": "The first hour of a city belongs to almost nobody. Streets that will be heaving by noon are yours alone — the quality of light, the quiet, the smell of it waking up. This is when {city} stops performing and just exists."
+  },
+  {
+    "id": "morning-coffee",
+    "category": "food",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "commercial",
+      "residential"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning coffee",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a café near {landmark}, order your usual, and ease into the morning.",
+        "withoutLandmark": "Find a nearby café in {zone} and start the day slowly with something warm."
+      },
+      "medium": {
+        "withLandmark": "Walk to a spot near {landmark} and try a café you haven't been to before.",
+        "withoutLandmark": "Try a {zone} café you wouldn't normally choose and see what the morning crowd is like."
+      },
+      "high": {
+        "withLandmark": "Order something from the menu you don't recognise at a spot near {landmark}.",
+        "withoutLandmark": "Order something from the menu you don't recognise and see what arrives."
+      }
+    },
+    "moreText": "Not the coffee. The ritual. Taking a seat somewhere unfamiliar and watching the morning regulars come in, getting a small glimpse of how the city organises itself before tourists arrive. Order slowly."
+  },
+  {
+    "id": "morning-park-start",
+    "category": "relaxation",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "parks",
+      "nature",
+      "quiet"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning in the park",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Start the day with a slow walk through the park near {landmark}.",
+        "withoutLandmark": "Find a nearby park or green space in {zone} and spend a few quiet minutes there."
+      },
+      "medium": {
+        "withLandmark": "Head to the green space near {landmark} and find a spot to sit before the crowds arrive.",
+        "withoutLandmark": "Find a patch of green in {zone} and sit with no particular agenda."
+      },
+      "high": {
+        "withLandmark": "Arrive at the park near {landmark} and leave without looking at your phone once.",
+        "withoutLandmark": "Find grass, sit on it, leave your phone in your pocket for 20 minutes."
+      }
+    },
+    "moreText": "Parks in the morning are a different ecosystem entirely — dog walkers, joggers, people eating breakfast on benches, others just sitting. The city's density dissolves here. This is a rare form of urban solitude."
+  },
+  {
+    "id": "morning-neighbourhood",
+    "category": "exploration",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "walkable"
+    ],
+    "energyState": "start",
+    "shortDesc": "Neighbourhood start",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk through the {zone} streets near {landmark} while the neighbourhood is still quiet.",
+        "withoutLandmark": "Walk through a quiet part of {zone} before the day gets busy."
+      },
+      "medium": {
+        "withLandmark": "Wander the streets around {landmark} and notice the details in this part of the city.",
+        "withoutLandmark": "Pick a residential block in {zone} and walk it slowly, noticing what you'd normally walk past."
+      },
+      "high": {
+        "withLandmark": "Start at {landmark} and take each turn based on instinct.",
+        "withoutLandmark": "Start walking in any direction from {zone} and see what the neighbourhood reveals."
+      }
+    },
+    "moreText": "Every neighbourhood has a version of itself that only locals know, and it only exists before about 9am. This is when you get to see it — the butcher opening up, the school run, the woman who always sits at the same cafe. Real life."
+  },
+  {
+    "id": "morning-heritage",
+    "category": "culture",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "religious",
+      "quiet"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning heritage",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Start the morning at {landmark} and take in the architecture before the crowds gather.",
+        "withoutLandmark": "Find a historic building or square in {zone} and take a few minutes with it before the day fills up."
+      },
+      "medium": {
+        "withLandmark": "Walk to {landmark} and spend a moment thinking about its place in the city's story.",
+        "withoutLandmark": "Pick something old in {zone} — a wall, a doorway, an alley — and give it your full attention."
+      },
+      "high": {
+        "withLandmark": "Arrive at {landmark} and photograph one specific detail that would normally go unnoticed.",
+        "withoutLandmark": "Find the oldest-looking thing in {zone} and spend five minutes with it."
+      }
+    },
+    "moreText": "Historic sites are different in the morning light. Softer, less theatrical. The stone reads differently, the scale feels more human, and there's no one standing in front of it for a photo. You get to just look at the thing."
+  },
+  {
+    "id": "morning-sunrise",
+    "category": "exploration",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "viewpoint",
+      "waterfront",
+      "parks"
+    ],
+    "energyState": "start",
+    "shortDesc": "Catch the sunrise",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Get to {landmark} early enough to catch the first light hitting the city.",
+        "withoutLandmark": "Find an open eastward-facing spot in {zone} and watch {city} receive the morning light."
+      },
+      "medium": {
+        "withLandmark": "Walk to {landmark} before it gets busy and watch the light shift as the sun comes up.",
+        "withoutLandmark": "Find wherever the sunrise is most visible from {zone} and stay until the sky settles."
+      },
+      "high": {
+        "withLandmark": "Be at {landmark} before anyone else. Watch the city switch on.",
+        "withoutLandmark": "Get out early, face east, and let {zone} tell you what a {city} morning actually looks like."
+      }
+    },
+    "moreText": "Catching a sunrise in a foreign city is one of travel's genuine privileges — something most visitors never see. The sky does something extraordinary, and the city below is still so still that it feels like it was made just for you."
+  },
+  {
+    "id": "morning-bakery",
+    "category": "food",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "commercial",
+      "cafes"
+    ],
+    "energyState": "start",
+    "shortDesc": "Bakery breakfast",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a bakery or pastry shop near {landmark} and eat fresh bread while it's still warm.",
+        "withoutLandmark": "Find the bakery that smells best in {zone} and eat something warm at the counter."
+      },
+      "medium": {
+        "withLandmark": "Go to the most local-looking bakery near {landmark} and order what the person in front of you orders.",
+        "withoutLandmark": "Walk into the first bakery you smell in {zone} and eat standing up at the counter."
+      },
+      "high": {
+        "withLandmark": "Order one of everything small at a bakery near {landmark} and eat it on the street.",
+        "withoutLandmark": "Order whatever comes out of the oven first at a {zone} bakery and eat it before it cools."
+      }
+    },
+    "moreText": "There's something almost ceremonial about walking into a bakery before 8am — the warmth, the specific sound of a morning rush, the smell that tells you bread was made hours before you arrived. Eat standing. It's better."
+  },
+  {
+    "id": "morning-street-awakening",
+    "category": "exploration",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "markets",
+      "residential"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Watch the city wake up",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Sit near {landmark} early and watch the street come alive — deliveries, shutters lifting, first regulars.",
+        "withoutLandmark": "Find a bench or café doorstep in {zone} and watch the neighbourhood go from empty to alive."
+      },
+      "medium": {
+        "withLandmark": "Walk slowly around {landmark} before it opens and notice everything that's being set up.",
+        "withoutLandmark": "Walk the main street of {zone} at the moment it's opening — watch each business unlock."
+      },
+      "high": {
+        "withLandmark": "Be outside {landmark} when it opens. Watch the very first people arrive and think about what brought them.",
+        "withoutLandmark": "Pick a corner in {zone} and stand still while the city builds up around you."
+      }
+    },
+    "moreText": "Watching a city open is watching theatre — the deliveries, the hosing down of pavements, the first espresso of the day being pulled at a bar that has no chairs yet. It's the version of {city} that only exists for about 45 minutes."
+  },
+  {
+    "id": "morning-fresh-market",
+    "category": "culture",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "markets",
+      "food",
+      "commercial"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Early morning market",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk through the market area near {landmark} before the midday crowds arrive.",
+        "withoutLandmark": "Get to {zone} early enough to see the market at its most local — before the tourists and after the traders set up."
+      },
+      "medium": {
+        "withLandmark": "Walk the market near {landmark} and buy one thing to eat while walking.",
+        "withoutLandmark": "Walk the {zone} morning market and buy two things you don't usually eat."
+      },
+      "high": {
+        "withLandmark": "Talk to one vendor near {landmark} and ask what they'd eat for breakfast today.",
+        "withoutLandmark": "Ask a {zone} market vendor what they'd recommend eating this morning and follow the advice."
+      }
+    },
+    "moreText": "Markets before the crowds are completely different places — the vendors are still setting up, the prices haven't changed for tourists yet, and you can actually talk to the people selling things. Buy something. Eat it there."
+  },
+  {
+    "id": "morning-window-coffee",
+    "category": "food",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "residential",
+      "quiet"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Coffee by the window",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a café near {landmark} with a window seat and spend the first hour just watching.",
+        "withoutLandmark": "Find the café in {zone} with the best view of the street and claim a window seat."
+      },
+      "medium": {
+        "withLandmark": "Sit inside a café near {landmark} facing outward and write or draw for twenty minutes.",
+        "withoutLandmark": "Order a slow breakfast at a window table in {zone} and stay until you've finished it completely."
+      },
+      "high": {
+        "withLandmark": "Pick a café near {landmark} and count how many different people pass the window in 15 minutes.",
+        "withoutLandmark": "Sit at a window in {zone}, order nothing you've had before, and watch the street as if you're seeing it for the last time."
+      }
+    },
+    "moreText": "There's an art to sitting in a cafe window with nothing in particular to do. You observe without being observed. You see the city operating on its own logic without needing to be part of it. One of the better things a morning can offer."
+  },
+  {
+    "id": "morning-courtyard-start",
+    "category": "relaxation",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "residential",
+      "quiet"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning courtyard",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a quiet courtyard or passage near {landmark} to start the day gently.",
+        "withoutLandmark": "Find a courtyard, passage, or tucked-away square in {zone} and sit in it before the city gets loud."
+      },
+      "medium": {
+        "withLandmark": "Look for a courtyard hidden near {landmark} and spend your first quiet minutes of the day there.",
+        "withoutLandmark": "Find a passage or enclosed square in {zone} that most people walk past without entering."
+      },
+      "high": {
+        "withLandmark": "Find the most secluded spot within 5 minutes of {landmark} and sit there until the city has fully woken up.",
+        "withoutLandmark": "Find the most hidden, enclosed space in {zone} and stay there in silence until you feel ready."
+      }
+    },
+    "moreText": "The best-kept secrets in any old city are its courtyards — spaces that shouldn't really be accessible, that feel enclosed and private, that have been quietly sitting there for centuries. Finding one before the day starts is a small luxury."
+  },
+  {
+    "id": "midday-streets",
+    "category": "exploration",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "commercial",
+      "arts"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Midday street walk",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk the streets around {landmark} and take in the rhythm of the midday city.",
+        "withoutLandmark": "Walk through {zone} without a destination and let the midday city unfold around you."
+      },
+      "medium": {
+        "withLandmark": "Head toward {landmark} via a route you haven't walked before.",
+        "withoutLandmark": "Pick a street in {zone} you've never taken and walk it from one end to the other."
+      },
+      "high": {
+        "withLandmark": "Start at {landmark} and make every directional decision by what looks more interesting.",
+        "withoutLandmark": "Walk with no map and make every turn based on what looks more interesting."
+      }
+    },
+    "moreText": "The city at full tilt is a specific kind of pleasure — noise, heat, movement, smell, everyone operating on their own errand. Walking without a destination through a city at peak energy is its own form of meditation once you stop resisting it."
+  },
+  {
+    "id": "midday-market",
+    "category": "culture",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "markets",
+      "commercial",
+      "food"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Market wander",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Browse the market area near {landmark} and take in what locals are buying.",
+        "withoutLandmark": "Find a local market or busy street in {zone} and browse without buying anything."
+      },
+      "medium": {
+        "withLandmark": "Walk through the market near {landmark} and try one thing you've never had before.",
+        "withoutLandmark": "Find something for sale in {zone} that confuses you and ask the vendor what it is."
+      },
+      "high": {
+        "withLandmark": "Go to the market near {landmark} and buy the most unusual thing you see.",
+        "withoutLandmark": "Buy the most unusual food item you can find in {zone} without looking it up first."
+      }
+    },
+    "moreText": "Markets at midday are at full volume — vendors calling, the smell of a dozen different foods, the crush of people. This is the city's metabolism at work. The best approach is to go slowly and follow your nose."
+  },
+  {
+    "id": "midday-viewpoint",
+    "category": "exploration",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "viewpoint",
+      "parks",
+      "historic"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Viewpoint stop",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Head up to {landmark} and look out over the city at its most active.",
+        "withoutLandmark": "Find a high point in {zone} and look out over the city at its midday pace."
+      },
+      "medium": {
+        "withLandmark": "Climb to {landmark} and identify three things about the city you hadn't noticed before.",
+        "withoutLandmark": "Find any elevated position in {zone} and watch the city below without checking your phone."
+      },
+      "high": {
+        "withLandmark": "Get to {landmark} and stay until you can describe what the city smells like from there.",
+        "withoutLandmark": "Get as high as you can in {zone} without going indoors and count how many different sounds you hear."
+      }
+    },
+    "moreText": "A viewpoint at midday gives you the city as a system rather than a collection of streets. You can see how it's organised, where the density is, where the water goes. Worth the climb just to reorient."
+  },
+  {
+    "id": "midday-architecture",
+    "category": "culture",
+    "timeSlots": [
+      "midday",
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "religious",
+      "arts"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Architecture walk",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk slowly past {landmark} and take in the details of its design.",
+        "withoutLandmark": "Walk slowly through a street in {zone} with notable architecture and pay attention to what's above eye level."
+      },
+      "medium": {
+        "withLandmark": "Approach {landmark} from a direction you've never used and notice what changes.",
+        "withoutLandmark": "Find one building in {zone} that stops you and spend five minutes with its facade."
+      },
+      "high": {
+        "withLandmark": "Photograph only the floors and ceilings inside or around {landmark}.",
+        "withoutLandmark": "Only photograph buildings in {zone} from below, looking straight up."
+      }
+    },
+    "moreText": "Most people look straight ahead. The buildings above them — the cornices, the ironwork, the upper floors with their different logic — are largely unseen. Midday is when the light hits vertically and the surfaces reveal themselves most clearly."
+  },
+  {
+    "id": "midday-arts-wander",
+    "category": "culture",
+    "timeSlots": [
+      "midday",
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "arts",
+      "walkable",
+      "commercial"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Arts district wander",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Explore the creative side of the area around {landmark} — galleries, murals, studio windows.",
+        "withoutLandmark": "Walk through the arts part of {zone} and take in the creative energy without entering anywhere."
+      },
+      "medium": {
+        "withLandmark": "Start at {landmark} and follow the street art and gallery signs to see where they lead.",
+        "withoutLandmark": "Follow any painted wall or gallery sign in {zone} and see where they take you."
+      },
+      "high": {
+        "withLandmark": "Find the strangest piece of art near {landmark} and decide what it's about.",
+        "withoutLandmark": "Find the most confusing piece of public art in {zone} and spend a minute trying to understand it."
+      }
+    },
+    "moreText": "Creative districts shift and change in ways that traditional tourist routes don't — one street will have three galleries in the same building, the next will be entirely residential, and around the corner is something you'll never find again. Following signs over deliberate routes is the right approach here."
+  },
+  {
+    "id": "midday-waterfront",
+    "category": "exploration",
+    "timeSlots": [
+      "midday",
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "waterfront",
+      "parks",
+      "walkable"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Waterfront walk",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk along the waterfront near {landmark} and follow the water for a while.",
+        "withoutLandmark": "Find the water in {zone} — river, harbour, canal — and walk alongside it."
+      },
+      "medium": {
+        "withLandmark": "Follow the waterfront from {landmark} and stop wherever something catches your attention.",
+        "withoutLandmark": "Walk along the {zone} waterfront and stop when something unexpected appears."
+      },
+      "high": {
+        "withLandmark": "Start at {landmark} and walk until the waterfront ends or the neighbourhood changes completely.",
+        "withoutLandmark": "Follow the water in one direction until the neighbourhood changes completely."
+      }
+    },
+    "moreText": "Walking alongside water in a city does something to the nervous system that's hard to explain. The city becomes less insistent. The sound changes. Even in a dense urban environment, a riverbank or harbour front has its own rhythm that's worth spending time in."
+  },
+  {
+    "id": "midday-coffee-stop",
+    "category": "food",
+    "timeSlots": [
+      "midday",
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "commercial",
+      "arts"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Midday coffee",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Stop for coffee near {landmark} and take a comfortable break from the day.",
+        "withoutLandmark": "Find a café in {zone} and take a proper break from walking."
+      },
+      "medium": {
+        "withLandmark": "Pick a café near {landmark} based on what sounds interesting from outside.",
+        "withoutLandmark": "Choose a café in {zone} based only on what the interior looks like from outside."
+      },
+      "high": {
+        "withLandmark": "Go to the smallest or most unusual-looking café near {landmark}.",
+        "withoutLandmark": "Order a coffee at a place in {zone} that makes you slightly unsure if it's actually a café."
+      }
+    },
+    "moreText": "The best cafe stop is the one where you don't know exactly why you went in — an interesting window, an unfamiliar smell, a queue of people who looked like locals. Midday is exactly the right time to stop moving and observe for a while."
+  },
+  {
+    "id": "midday-bookshop",
+    "category": "culture",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "arts",
+      "historic",
+      "commercial"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Bookshop browse",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a bookshop near {landmark} and spend time in it without a plan.",
+        "withoutLandmark": "Find an independent bookshop in {zone} and give yourself time in it — no rush."
+      },
+      "medium": {
+        "withLandmark": "Walk into the first bookshop near {landmark} and open three books at random.",
+        "withoutLandmark": "Walk into a bookshop in {zone} and find the section you'd never normally look at."
+      },
+      "high": {
+        "withLandmark": "Buy the book nearest {landmark} whose cover tells you nothing about what's inside.",
+        "withoutLandmark": "Buy the book in {zone} with the most interesting first page. Don't read the back first."
+      }
+    },
+    "moreText": "A good independent bookshop is a highly specific argument about what's worth reading, made physical. The sections that get the most shelf space, the staff recommendations, the layout — all of it says something about the neighbourhood. Browsing without a destination is exactly the right approach."
+  },
+  {
+    "id": "midday-square-watch",
+    "category": "exploration",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "commercial",
+      "walkable"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Square people-watching",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a bench or step near {landmark} and watch the midday square at full volume.",
+        "withoutLandmark": "Find the main square or plaza in {zone} and sit somewhere with a clear view."
+      },
+      "medium": {
+        "withLandmark": "Sit at the edge of the space near {landmark} and watch the midday crowd without joining it.",
+        "withoutLandmark": "Sit in a {zone} square for 20 minutes and count how many different things are happening at once."
+      },
+      "high": {
+        "withLandmark": "Pick one person near {landmark} to watch for five minutes. What story are they in?",
+        "withoutLandmark": "Sit in {zone}'s busiest open space and construct a story around the first three strangers you see."
+      }
+    },
+    "moreText": "Every city has a square where everyone eventually passes through. It's where you can see the full social spectrum in one place — school groups, tourists, people on lunch breaks, retirees, pigeons, someone always arguing on a phone. One of the best free shows anywhere."
+  },
+  {
+    "id": "midday-covered-passage",
+    "category": "culture",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "commercial",
+      "quiet"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Arcade or passage",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Look for a covered passage, arcade, or gallery near {landmark} and walk through it.",
+        "withoutLandmark": "Find the most interesting covered passage or arcade in {zone} and walk it slowly."
+      },
+      "medium": {
+        "withLandmark": "Explore the indoor passages and arcades near {landmark} — the kind that feel like a city within a city.",
+        "withoutLandmark": "Find a covered passageway in {zone} and follow it to wherever it exits."
+      },
+      "high": {
+        "withLandmark": "Near {landmark}, find a passageway or alley that isn't marked on any map and walk through it.",
+        "withoutLandmark": "Find a passage or arcade in {zone} that looks like it might be private and see if it's actually public."
+      }
+    },
+    "moreText": "Covered passages — arcades, galleries, indoor streets — are relics of a city within a city. The ones that survive tend to have a quality of suspended time: haberdashers next to art dealers, the light coming in at the top, the sound completely different from the street outside."
+  },
+  {
+    "id": "midday-light-photography",
+    "category": "exploration",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "viewpoint",
+      "arts",
+      "waterfront"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Midday light photography",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Use the strong midday light around {landmark} for photography — shadows are honest at noon.",
+        "withoutLandmark": "Walk through {zone} and photograph only what the midday sun is doing to the surfaces around you."
+      },
+      "medium": {
+        "withLandmark": "Photograph {landmark} from six different positions without repeating an angle.",
+        "withoutLandmark": "Pick five things in {zone} and photograph only their shadows."
+      },
+      "high": {
+        "withLandmark": "Stand at the most exposed point near {landmark} and take only one photograph. Make it count.",
+        "withoutLandmark": "Spend 20 minutes in {zone} photographing only reflections."
+      }
+    },
+    "moreText": "Midday light is what photographers usually avoid — it's harsh, flat, honest. But that honesty is the point. The textures of old buildings, the hard edges of shadows, the way heat appears to radiate from surfaces. It's the least flattering and most revealing light."
+  },
+  {
+    "id": "lunch-local-cafe",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "residential",
+      "walkable"
+    ],
+    "energyState": "food",
+    "shortDesc": "Local café lunch",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Have lunch at a café near {landmark} — the kind of place locals go to eat well without fuss.",
+        "withoutLandmark": "Find a local {city} café in {zone} and have a proper sit-down lunch at the kind of place regulars return to."
+      },
+      "medium": {
+        "withLandmark": "Eat lunch at a café near {landmark} that doesn't have an English menu.",
+        "withoutLandmark": "Eat at a {zone} café where you can't fully read the menu and order by pointing."
+      },
+      "high": {
+        "withLandmark": "Eat at the most crowded place near {landmark} and sit wherever they put you.",
+        "withoutLandmark": "Eat at the busiest place in {zone} and sit wherever they put you."
+      }
+    },
+    "moreText": "The local lunch cafe is one of the most reliable windows into a city's everyday life. The menu is short, the tables are close together, the food is what people actually eat rather than what restaurants think tourists want. This is the real thing."
+  },
+  {
+    "id": "lunch-market-eat",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "markets",
+      "commercial",
+      "food"
+    ],
+    "energyState": "food",
+    "shortDesc": "Market lunch",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Pick up lunch from a stall near {landmark} and eat somewhere nearby.",
+        "withoutLandmark": "Pick up a {city} lunch from a market stall in {zone} and find a place to eat it outside."
+      },
+      "medium": {
+        "withLandmark": "Try a local specialty near {landmark} that you'd normally walk past.",
+        "withoutLandmark": "Try a local {zone} street food that you'd normally walk past without stopping for."
+      },
+      "high": {
+        "withLandmark": "Eat whatever the vendor near {landmark} recommends without asking what it is first.",
+        "withoutLandmark": "Tell the vendor in {zone} to choose for you and don't ask what it is before eating."
+      }
+    },
+    "moreText": "Eating at a market stall is one of the best things you can do in any city. The food is immediate, made in front of you, by someone whose entire reputation rests on that one dish. Queue, eat standing, don't overthink it."
+  },
+  {
+    "id": "lunch-sit-down",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "historic",
+      "waterfront"
+    ],
+    "energyState": "food",
+    "shortDesc": "Sit-down lunch",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a proper sit-down restaurant near {landmark} and take an unhurried lunch.",
+        "withoutLandmark": "Find a proper sit-down restaurant in {zone} and take an unhurried lunch — no eating while walking."
+      },
+      "medium": {
+        "withLandmark": "Eat at the restaurant nearest to {landmark} that you'd normally overlook.",
+        "withoutLandmark": "Eat at the first restaurant in {zone} that you'd normally walk past without looking at."
+      },
+      "high": {
+        "withLandmark": "Order something near {landmark} you've never eaten before and make it the main event.",
+        "withoutLandmark": "Order something in {zone} you've never eaten before and make it the main event of the afternoon."
+      }
+    },
+    "moreText": "A proper sit-down lunch is a form of commitment that most modern travel doesn't allow for. You're going nowhere for an hour. The world can wait. Some of the best meals happen not because the food is extraordinary but because you gave it enough time."
+  },
+  {
+    "id": "lunch-terrace",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "parks",
+      "waterfront"
+    ],
+    "energyState": "food",
+    "shortDesc": "Terrace lunch",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a terrace or outdoor table near {landmark} and eat with a view of the street.",
+        "withoutLandmark": "Find somewhere to eat outside in {zone} — terrace or pavement — and take your time."
+      },
+      "medium": {
+        "withLandmark": "Eat on a terrace near {landmark} and watch what's happening in the street.",
+        "withoutLandmark": "Eat outside in {zone} and spend more time watching the street than looking at your phone."
+      },
+      "high": {
+        "withLandmark": "Sit on the most exposed outdoor table near {landmark} and eat without looking at your phone.",
+        "withoutLandmark": "Eat your entire meal in {zone} without once looking at your phone. Watch the street."
+      }
+    },
+    "moreText": "Eating outside with a view of the street is one of the simplest pleasures urban travel offers. The food is secondary to the show in front of you — the street at its midday activity, the light, the sound. Put your phone away and just watch."
+  },
+  {
+    "id": "lunch-quick-bite",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "markets",
+      "cafes"
+    ],
+    "energyState": "food",
+    "shortDesc": "Quick lunch bite",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Grab something quick and good near {landmark} and keep moving.",
+        "withoutLandmark": "Grab something local and portable in {zone} and don't sit down."
+      },
+      "medium": {
+        "withLandmark": "Get food near {landmark} from somewhere you've never tried.",
+        "withoutLandmark": "Get food from the first place in {zone} that smells good, without stopping to read the menu."
+      },
+      "high": {
+        "withLandmark": "Eat standing up near {landmark} in under 10 minutes.",
+        "withoutLandmark": "Eat standing up in {zone}. Something street-level, under 10 minutes, no deliberating."
+      }
+    },
+    "moreText": "The street food of a city tells you more about it than any restaurant. It's food designed for people who have somewhere to be — optimised over decades for speed, portability, and value. The best things are usually sold from the most unremarkable carts."
+  },
+  {
+    "id": "lunch-picnic",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "markets",
+      "parks",
+      "food"
+    ],
+    "energyState": "food",
+    "shortDesc": "Improvised picnic",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Buy bread, cheese, and something local near {landmark} and find a green spot to eat it.",
+        "withoutLandmark": "Pick up food from a market or shop in {zone} and eat it somewhere outside — on the grass, on a wall."
+      },
+      "medium": {
+        "withLandmark": "Source three different things from three different places near {landmark} and combine them into lunch.",
+        "withoutLandmark": "Build a lunch from three separate shops in {zone} and eat it wherever looks best."
+      },
+      "high": {
+        "withLandmark": "Buy only things near {landmark} you've never eaten before and improvise lunch from them.",
+        "withoutLandmark": "Buy only things from {zone} you can't identify and eat them outside."
+      }
+    },
+    "moreText": "Assembling food from multiple sources and eating it somewhere outside is one of the more pleasurably chaotic ways to have lunch. You get to wander, negotiate, discover, and then sit somewhere unexpected. The food always tastes better when you made decisions to get it."
+  },
+  {
+    "id": "lunch-wine-small-plates",
+    "category": "social",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "cafes",
+      "residential"
+    ],
+    "energyState": "food",
+    "shortDesc": "Wine and small plates",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a spot near {landmark} for a slow wine-and-small-plates lunch. Take your time.",
+        "withoutLandmark": "Find somewhere in {zone} that does wine and small plates and make lunch into the long part of the day."
+      },
+      "medium": {
+        "withLandmark": "Near {landmark}, order a glass of whatever they recommend and a few small things to share.",
+        "withoutLandmark": "Ask the waiter in {zone} to choose something local and pair it with wine. Trust them."
+      },
+      "high": {
+        "withLandmark": "Go to the wine bar nearest {landmark} and order only the things you can't pronounce.",
+        "withoutLandmark": "Order only the things you can't identify on the menu in {zone}. No research first."
+      }
+    },
+    "moreText": "A wine-and-small-plates lunch is the European model of the long afternoon, and it's one of the better inventions in the history of eating. The idea is not to finish quickly. Order slowly, let the dishes arrive when they arrive, and consider a second glass."
+  },
+  {
+    "id": "lunch-neighbourhood-dish",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "commercial",
+      "food"
+    ],
+    "energyState": "food",
+    "shortDesc": "The neighbourhood dish",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find the local classic that people near {landmark} grew up eating and try it for lunch.",
+        "withoutLandmark": "Ask someone in {zone} what they'd eat for lunch if it was a normal day. Eat that."
+      },
+      "medium": {
+        "withLandmark": "Near {landmark}, find the most handwritten, least-designed menu and eat the daily special.",
+        "withoutLandmark": "Find the most basic-looking lunch place in {zone} — no pictures on the menu — and order what's popular."
+      },
+      "high": {
+        "withLandmark": "Eat lunch at {landmark}'s nearest equivalent of a workers' canteen. No tourist traps.",
+        "withoutLandmark": "Find where the workers eat lunch in {zone} and eat there. No menus in English, no signs outside."
+      }
+    },
+    "moreText": "Every neighbourhood has one thing it makes better than anywhere else — a specific dish, a specific preparation, something that emerged from the ingredients and the people over decades. Finding and eating it is the actual point of being here."
+  },
+  {
+    "id": "afternoon-wander",
+    "category": "exploration",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "residential",
+      "commercial"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Afternoon wander",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Spend the afternoon wandering the area around {landmark} without a fixed plan.",
+        "withoutLandmark": "Spend the afternoon wandering {zone} without committing to a destination."
+      },
+      "medium": {
+        "withLandmark": "Use {landmark} as a starting point and walk outward from there.",
+        "withoutLandmark": "Pick an intersection in {zone} at random and walk in each direction until something pulls you in."
+      },
+      "high": {
+        "withLandmark": "Walk away from {landmark} as far as your legs want and see what the city looks like from there.",
+        "withoutLandmark": "Walk until you're somewhere in {zone} you've never been and stop there for 10 minutes."
+      }
+    },
+    "moreText": "The afternoon wander is the most underrated form of urban exploration. You're not looking for anything in particular, which means you're capable of noticing everything. The streets feel different from the morning, the light has moved, and you've earned the right to be a bit aimless."
+  },
+  {
+    "id": "afternoon-gallery",
+    "category": "culture",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "arts",
+      "historic",
+      "commercial"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Gallery visit",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a gallery or museum near {landmark} and spend a careful hour inside.",
+        "withoutLandmark": "Find a gallery or small museum in {zone} and spend a quiet hour inside."
+      },
+      "medium": {
+        "withLandmark": "Visit a gallery near {landmark} and spend the whole time on one thing you find difficult.",
+        "withoutLandmark": "Go into the first gallery in {zone} and pick one piece to spend 10 minutes with."
+      },
+      "high": {
+        "withLandmark": "Find the smallest or least-promoted gallery near {landmark} and go in.",
+        "withoutLandmark": "Find the least-promoted gallery in {zone} and go inside without reading anything about it first."
+      }
+    },
+    "moreText": "Galleries are best visited without a plan. Pick a direction inside and walk until something stops you — not the most famous thing, not the thing by the entrance, but the thing that makes you stand still longer than you expected. Then spend your time there."
+  },
+  {
+    "id": "afternoon-park-rest",
+    "category": "relaxation",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "parks",
+      "nature",
+      "quiet"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Park rest",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a bench or patch of grass near {landmark} and rest for a while.",
+        "withoutLandmark": "Find a park in {zone} and sit somewhere comfortable without an agenda."
+      },
+      "medium": {
+        "withLandmark": "Go to the park near {landmark} and watch people for 20 minutes without doing anything else.",
+        "withoutLandmark": "Find a bench in {zone} and watch whatever's in front of you for 20 minutes."
+      },
+      "high": {
+        "withLandmark": "Lie on the grass near {landmark} and stare at the sky.",
+        "withoutLandmark": "Lie on the grass in {zone} and stare at the sky. That's it."
+      }
+    },
+    "moreText": "The park rest is underestimated as a travel activity. You are not wasting time. You are doing something the city does naturally — pausing, recalibrating, watching what happens when nothing is being asked of you. The afternoon is often when the best things get noticed."
+  },
+  {
+    "id": "afternoon-backstreets",
+    "category": "exploration",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "walkable",
+      "quiet"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Backstreet explore",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Explore the side streets around {landmark} and look for what the neighbourhood hides.",
+        "withoutLandmark": "Take the back streets through {zone} and notice what the main roads leave out."
+      },
+      "medium": {
+        "withLandmark": "Wander the alleyways and smaller streets around {landmark}.",
+        "withoutLandmark": "Take only alleys and side streets in {zone} — nothing wide enough for two cars."
+      },
+      "high": {
+        "withLandmark": "Start at {landmark} and walk only on streets that could fit at most one car.",
+        "withoutLandmark": "Walk only on streets smaller than the last one in {zone}. Keep going until you can't go smaller."
+      }
+    },
+    "moreText": "The back streets of any neighbourhood contain what the main roads can't — the personal, the odd, the handmade, the things that survive not because they're commercially successful but because someone kept them going. This is where the city gets interesting."
+  },
+  {
+    "id": "afternoon-waterfront-sit",
+    "category": "relaxation",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "waterfront",
+      "parks",
+      "quiet"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Waterfront rest",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Sit at the waterfront near {landmark} and watch the water for a while.",
+        "withoutLandmark": "Find the water in {zone} and sit next to it. Let the afternoon pass."
+      },
+      "medium": {
+        "withLandmark": "Find a quiet spot near {landmark} along the water and stay until the light changes.",
+        "withoutLandmark": "Find a quiet spot by the water in {zone} and stay there until the light changes."
+      },
+      "high": {
+        "withLandmark": "Sit right at the water's edge near {landmark} and sketch or write one observation.",
+        "withoutLandmark": "Sit as close to the water as possible in {zone} and sketch or write one observation."
+      }
+    },
+    "moreText": "Cities on water have a secret geography that's invisible from the main streets. The waterfront is where the industrial history sits alongside the residential, where the city turns to face itself. Sitting next to moving water in an afternoon is a small, reliable form of peace."
+  },
+  {
+    "id": "afternoon-coffee-long",
+    "category": "food",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "residential",
+      "commercial"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Long coffee break",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Take a long coffee break near {landmark} and let the afternoon slow down.",
+        "withoutLandmark": "Find a café in {zone} and sit for longer than you normally would. Order something, stay, watch."
+      },
+      "medium": {
+        "withLandmark": "Find the most local-looking café near {landmark} and stay for at least 30 minutes.",
+        "withoutLandmark": "Find a café in {zone} where no one is looking at their phone and stay for at least 30 minutes."
+      },
+      "high": {
+        "withLandmark": "Order coffee near {landmark} and don't open your phone for the entire break.",
+        "withoutLandmark": "Order a coffee in {zone} and sit without opening your phone. Just watch."
+      }
+    },
+    "moreText": "The long afternoon coffee is a form of permission. You are not being unproductive. You are doing what the city actually does at this hour — slowing down, watching the light change through the window. Stay at least until your cup is cold."
+  },
+  {
+    "id": "afternoon-heritage",
+    "category": "culture",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "religious",
+      "viewpoint"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Afternoon heritage",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Visit {landmark} in the afternoon when the crowds thin out.",
+        "withoutLandmark": "Find a historic or significant site in {zone} and visit it in the quiet of the afternoon."
+      },
+      "medium": {
+        "withLandmark": "At {landmark}, focus on one detail you can see from the outside.",
+        "withoutLandmark": "Find the oldest or most historically significant building in {zone} and walk a slow circle around it."
+      },
+      "high": {
+        "withLandmark": "Arrive at {landmark} and try to imagine what stood here 200 years ago.",
+        "withoutLandmark": "Find the most worn-looking surface in {zone} and consider what it's been through."
+      }
+    },
+    "moreText": "Historic sites in the afternoon have a different quality than in the morning — more visitors, yes, but also a different light, longer shadows, and the accumulated warmth of the day in the stone. Going back to something you've already seen is often more rewarding than seeing something new."
+  },
+  {
+    "id": "afternoon-shop-browse",
+    "category": "culture",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "arts",
+      "markets"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Browse local shops",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Browse the shops and stalls near {landmark} without planning to buy anything.",
+        "withoutLandmark": "Browse the local shops in {zone} without planning to buy anything — just look."
+      },
+      "medium": {
+        "withLandmark": "Walk into the most interesting-looking independent shop near {landmark}.",
+        "withoutLandmark": "Walk into the most interesting-looking independent shop you pass in {zone}."
+      },
+      "high": {
+        "withLandmark": "Near {landmark}, go into a shop that doesn't immediately make sense to you.",
+        "withoutLandmark": "Go into a shop in {zone} that doesn't immediately make sense to you and ask what their most popular item is."
+      }
+    },
+    "moreText": "Independent shops in a neighbourhood are documents of it. What gets sold, how it's arranged, who comes in — all of it tells you something about what the area values and who lives there. Browse without the pressure to buy and the shops become something else entirely."
+  },
+  {
+    "id": "afternoon-quiet-spot",
+    "category": "relaxation",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "quiet",
+      "parks",
+      "religious"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Find a quiet spot",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a quiet corner near {landmark} and spend time there doing nothing in particular.",
+        "withoutLandmark": "Find the quietest spot in {zone} and spend 15 minutes there."
+      },
+      "medium": {
+        "withLandmark": "Walk toward {landmark} and stop at the first place that feels unexpectedly calm.",
+        "withoutLandmark": "Keep walking in {zone} until you find somewhere that feels genuinely quiet and stay there."
+      },
+      "high": {
+        "withLandmark": "Find the least-visited spot near {landmark} and document what you find.",
+        "withoutLandmark": "Find the spot in {zone} that feels most forgotten and spend time there."
+      }
+    },
+    "moreText": "Every dense city has pockets of near-total quiet that are almost impossible to find without stumbling on them — tucked behind religious buildings, in the corners of parks, in passages that feel semi-private. When you find one, the instinct is to stay."
+  },
+  {
+    "id": "afternoon-museum",
+    "category": "culture",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "arts",
+      "historic",
+      "parks"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Afternoon museum",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Spend the afternoon in a museum or collection near {landmark} — the kind of place that earns your time.",
+        "withoutLandmark": "Find a museum or collection in {zone} worth an hour of your afternoon."
+      },
+      "medium": {
+        "withLandmark": "Go into a museum near {landmark} and spend the whole time in the room most people walk through quickly.",
+        "withoutLandmark": "Find the museum in {zone} you'd normally skip and go into the least-visited section."
+      },
+      "high": {
+        "withLandmark": "Find the one room in any museum near {landmark} where nobody else goes and spend 20 minutes.",
+        "withoutLandmark": "Find a museum in {zone} and commit to its strangest or smallest collection for the full visit."
+      }
+    },
+    "moreText": "The best way to do a museum in the afternoon is to pick one room and stay in it. Not ten rooms, not the whole floor — one room, until you've seen everything in it properly. Museums reward attention, not coverage."
+  },
+  {
+    "id": "afternoon-nap",
+    "category": "relaxation",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "parks",
+      "quiet",
+      "waterfront"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Post-lunch rest",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a shaded spot near {landmark}, lie down, and let the post-lunch afternoon pass slowly.",
+        "withoutLandmark": "Find somewhere in {zone} that's comfortable enough to close your eyes for 20 minutes."
+      },
+      "medium": {
+        "withLandmark": "Near {landmark}, find a park bench or patch of grass and do absolutely nothing for half an hour.",
+        "withoutLandmark": "The afternoon doesn't need a plan. Find a comfortable surface in {zone} and stay horizontal."
+      },
+      "high": {
+        "withLandmark": "Lie down near {landmark} without checking the time and get up only when you're ready.",
+        "withoutLandmark": "The city will still be there. Find a patch of {zone} and sleep on it."
+      }
+    },
+    "moreText": "The post-lunch nap is a deeply human institution and the afternoon is exactly when it belongs. You are not being lazy. You are giving the first half of the day time to settle, and you are preparing yourself for the second half. Lie down in the park. It's fine."
+  },
+  {
+    "id": "afternoon-ice-cream",
+    "category": "food",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "parks",
+      "waterfront"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Ice cream walk",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Get an ice cream or gelato near {landmark} and walk slowly while you eat it.",
+        "withoutLandmark": "Find the best ice cream or sorbet in {zone} and wander with it."
+      },
+      "medium": {
+        "withLandmark": "Order a flavour near {landmark} you'd never normally pick and see if you misjudged it.",
+        "withoutLandmark": "Order the strangest flavour at an ice cream shop in {zone} and walk through the neighbourhood eating it."
+      },
+      "high": {
+        "withLandmark": "Get ice cream near {landmark} and give the next 30 minutes no structure whatsoever.",
+        "withoutLandmark": "Buy something cold and sweet in {zone} and walk without a direction until it's finished."
+      }
+    },
+    "moreText": "Ice cream and city wandering were made for each other. You have something to hold, something to eat, and no particular obligation to be anywhere. The city looks different when you're walking slowly with something cold. Use the time well."
+  },
+  {
+    "id": "afternoon-rooftop",
+    "category": "exploration",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "viewpoint",
+      "commercial",
+      "arts"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Rooftop or elevated terrace",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a rooftop bar, café, or terrace near {landmark} and spend the afternoon there with a drink.",
+        "withoutLandmark": "Find the highest accessible outdoor spot in {zone} — a rooftop, terrace, or elevated café — and sit with a view."
+      },
+      "medium": {
+        "withLandmark": "Get above street level near {landmark} and watch the city from a different angle.",
+        "withoutLandmark": "Find any elevated outdoor space in {zone} that isn't well-signed and work out if the public can use it."
+      },
+      "high": {
+        "withLandmark": "Find the highest outdoor spot within 10 minutes of {landmark} and get to it.",
+        "withoutLandmark": "Find the highest accessible point in {zone} that isn't a tourist attraction and go up."
+      }
+    },
+    "moreText": "Most cities have a layer that's only visible from above — rooftops, terraces, the tops of buildings people actually live in. Getting above street level in the afternoon is a form of urban geology: you see the layers the city is made of, and you see it all at once."
+  },
+  {
+    "id": "afternoon-cloister",
+    "category": "relaxation",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "religious",
+      "quiet"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Cloister or courtyard",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a church courtyard or enclosed garden near {landmark} and sit in the afternoon quiet.",
+        "withoutLandmark": "Find a cloister, church garden, or enclosed courtyard in {zone} and sit in it."
+      },
+      "medium": {
+        "withLandmark": "Look for the courtyard or enclosed space associated with {landmark} that most visitors miss.",
+        "withoutLandmark": "Find the most peaceful enclosed space in {zone} — a cloister, a courtyard, a walled garden — and spend time there."
+      },
+      "high": {
+        "withLandmark": "Find the oldest stone surface near {landmark} and sit next to it long enough to feel its age.",
+        "withoutLandmark": "Find a space in {zone} where sound disappears. Stay until you understand why it's quiet."
+      }
+    },
+    "moreText": "Cloisters and enclosed gardens are among the quietest places in any city, often hidden inside religious buildings that most people don't enter. The sound disappears. The temperature drops. There's a quality of suspended time in these spaces that's difficult to find elsewhere."
+  },
+  {
+    "id": "afternoon-bookshop-afternoon",
+    "category": "culture",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "arts",
+      "residential",
+      "commercial"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Afternoon bookshop",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Spend part of the afternoon in a bookshop near {landmark} — the kind with chairs and no pressure to buy.",
+        "withoutLandmark": "Find a bookshop in {zone} that feels good to be in and stay for a while."
+      },
+      "medium": {
+        "withLandmark": "Go into a bookshop near {landmark} and find one book you'd never have looked for.",
+        "withoutLandmark": "Find a secondhand bookshop in {zone} and look only at the books other people have annotated."
+      },
+      "high": {
+        "withLandmark": "Pick a book at random near {landmark} and read the first chapter without knowing anything about it.",
+        "withoutLandmark": "Go into a bookshop in {zone} and ask for a recommendation. Read the first 10 pages before leaving."
+      }
+    },
+    "moreText": "An afternoon bookshop browse is one of the more pleasurable ways to spend an hour in any city. You are in a curated argument about what's worth reading, made by someone who cares. Follow the argument. Go to the sections that confuse you first."
+  },
+  {
+    "id": "afternoon-slow-beer",
+    "category": "social",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "nightlife",
+      "commercial",
+      "residential"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Slow afternoon beer",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a terrace or bar near {landmark} for a slow afternoon beer in the sun.",
+        "withoutLandmark": "Find somewhere in {zone} that does a local beer and drink it somewhere with afternoon light."
+      },
+      "medium": {
+        "withLandmark": "Go to a bar near {landmark} that looks like locals use it on a Tuesday and order whatever's on tap.",
+        "withoutLandmark": "Order a local beer in {zone} and drink it slowly at a bar with no background music."
+      },
+      "high": {
+        "withLandmark": "Find the least glamorous bar near {landmark} and sit at the counter.",
+        "withoutLandmark": "Go to the bar in {zone} that looks most like it hasn't changed in 30 years."
+      }
+    },
+    "moreText": "A slow afternoon beer — one beer, taken slowly, at a bar with no particular ambitions — is one of the better social inventions. You watch the city shift from afternoon to early evening. The regulars start to appear. The light changes. This is exactly the right pace."
+  },
+  {
+    "id": "afternoon-cemetery",
+    "category": "culture",
+    "timeSlots": [
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "historic",
+      "quiet",
+      "parks"
+    ],
+    "energyState": "observe",
+    "shortDesc": "Historic cemetery walk",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a historic cemetery or burial ground near {landmark} and walk through it slowly.",
+        "withoutLandmark": "Walk through a historic cemetery in {zone} — they're the quietest, most honest museums in any city."
+      },
+      "medium": {
+        "withLandmark": "Look for the oldest or most unusual memorial near {landmark} and read it carefully.",
+        "withoutLandmark": "Find the oldest headstone you can read in {zone}'s historic cemetery and think about who is buried there."
+      },
+      "high": {
+        "withLandmark": "Walk a {zone} cemetery near {landmark} and find one grave that tells the most unexpected story.",
+        "withoutLandmark": "Spend 20 minutes in a cemetery in {zone} and write down three things you noticed."
+      }
+    },
+    "moreText": "Historic cemeteries are the most honest museums any city has. The inscriptions tell specific stories about specific lives, the architecture ranges from humble to extravagant, and the whole place is quiet in a way that nothing else is. It's worth an hour of anyone's afternoon."
+  },
+  {
+    "id": "evening-slow-walk",
+    "category": "exploration",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "residential",
+      "commercial"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Evening stroll",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Take a slow evening walk past {landmark} as the city shifts into its evening rhythm.",
+        "withoutLandmark": "Take a slow walk through {zone} as the city shifts into its evening rhythm and the light changes."
+      },
+      "medium": {
+        "withLandmark": "Walk from {landmark} and notice how the neighbourhood feels different in the evening.",
+        "withoutLandmark": "Walk the {zone} streets and notice how they feel different now compared to earlier in the day."
+      },
+      "high": {
+        "withLandmark": "Walk past {landmark} without stopping and keep going until the city goes genuinely quiet.",
+        "withoutLandmark": "Walk through {zone} until the streets go quiet. Notice exactly where that happens."
+      }
+    },
+    "moreText": "The evening slow walk is when the city is at its most forgiving. The heat has dropped, the streets are filling up in a different way, and the light is doing something extraordinary. You don't need a destination. The streets are the destination."
+  },
+  {
+    "id": "evening-dinner",
+    "category": "food",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "residential",
+      "waterfront"
+    ],
+    "energyState": "food",
+    "shortDesc": "Evening dinner",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "End the day with a proper dinner near {landmark} in {city}.",
+        "withoutLandmark": "Find a restaurant in {zone} for a proper sit-down dinner — the kind of meal that ends the day well."
+      },
+      "medium": {
+        "withLandmark": "Eat at the restaurant near {landmark} with the most hand-written items on the menu.",
+        "withoutLandmark": "Eat somewhere in {zone} with a handwritten menu or a daily special and let that decide your order."
+      },
+      "high": {
+        "withLandmark": "Near {landmark}, eat somewhere you'd never have found without wandering.",
+        "withoutLandmark": "Eat somewhere in {zone} you'd never have chosen without the day having gone exactly as it did."
+      }
+    },
+    "moreText": "The sit-down dinner at the end of a long day of walking is one of the reliable rewards of travel. Eat somewhere that asks something of you — an unfamiliar menu, a specials board, a question from the waiter about how you want something cooked. Let it take time."
+  },
+  {
+    "id": "evening-bar",
+    "category": "social",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "nightlife",
+      "cafes",
+      "commercial"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Evening drink",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a spot near {landmark} for a drink to close out the day.",
+        "withoutLandmark": "Find somewhere comfortable in {zone} for a drink at the end of the day. No rush."
+      },
+      "medium": {
+        "withLandmark": "Go to a bar near {landmark} that looks like it has regulars.",
+        "withoutLandmark": "Find a bar in {zone} that looks like it has regulars and sit at the bar."
+      },
+      "high": {
+        "withLandmark": "Find the most lived-in-looking bar near {landmark} and order whatever they recommend.",
+        "withoutLandmark": "Go to the most lived-in-looking bar in {zone} and tell the bartender to choose."
+      }
+    },
+    "moreText": "The right bar in the right city at the right time of day is one of the most reliably good things travel offers. Not the famous one, not the tourist bar — the one with regulars, with a specific smell, with a bartender who looks like they've been there for years. That one."
+  },
+  {
+    "id": "evening-viewpoint",
+    "category": "exploration",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "viewpoint",
+      "parks",
+      "waterfront"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Sunset viewpoint",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Head to {landmark} for a final view of the city as the light fades.",
+        "withoutLandmark": "Find an elevated point in {zone} and watch the city as the light fades."
+      },
+      "medium": {
+        "withLandmark": "Get to {landmark} in time to see the city change colour as the sun drops.",
+        "withoutLandmark": "Find the highest accessible point in {zone} and watch the city change as the sun drops."
+      },
+      "high": {
+        "withLandmark": "Get above {landmark} if you can and watch the city go from gold to grey.",
+        "withoutLandmark": "Get as high as you can in {zone} without going indoors and watch the city go from gold to grey."
+      }
+    },
+    "moreText": "The city at dusk from above is a different thing entirely from the daytime view. The lights are coming on unevenly, the sky is changing faster than you'd expect, and the whole thing briefly looks like a diagram of itself. Worth the climb every time."
+  },
+  {
+    "id": "evening-waterfront",
+    "category": "relaxation",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "waterfront",
+      "parks",
+      "quiet"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Evening waterfront",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "End the day by the water near {landmark} as the evening settles in.",
+        "withoutLandmark": "End the day by the water in {zone}. Let the city wind down around you."
+      },
+      "medium": {
+        "withLandmark": "Walk the waterfront near {landmark} until the evening feels complete.",
+        "withoutLandmark": "Walk along the {zone} waterfront until the evening feels complete."
+      },
+      "high": {
+        "withLandmark": "Sit right at the water's edge near {landmark} and stay until it gets dark.",
+        "withoutLandmark": "Sit as close to the water as you can in {zone} and stay until it gets properly dark."
+      }
+    },
+    "moreText": "Water at dusk in a city has a specific quality that's hard to describe — the reflections, the smell, the sound of it. The city retreats slightly and the waterfront takes over. Staying until it gets dark is the right call."
+  },
+  {
+    "id": "evening-neighbourhood-end",
+    "category": "exploration",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "walkable",
+      "quiet"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Evening neighbourhood",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk through {zone} near {landmark} as the evening brings a different kind of quiet.",
+        "withoutLandmark": "Walk through {zone} as the evening brings a different kind of quiet."
+      },
+      "medium": {
+        "withLandmark": "Wander the streets near {landmark} in the evening and listen to what the city sounds like now.",
+        "withoutLandmark": "Wander the residential streets of {zone} in the evening and listen to what the city sounds like now."
+      },
+      "high": {
+        "withLandmark": "Get deliberately lost near {landmark} and find your way back using only memory.",
+        "withoutLandmark": "Get deliberately lost in {zone} and find your way back using only your memory of the day."
+      }
+    },
+    "moreText": "The neighbourhood at night is a different neighbourhood. The people who come out after dark are different from the daytime crowd, the lighting changes the character of every street, and the ambient sound is completely different. Getting deliberately lost is the right approach."
+  },
+  {
+    "id": "evening-aperitivo",
+    "category": "social",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "commercial",
+      "nightlife",
+      "cafes"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Aperitivo hour",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a spot near {landmark} for an aperitivo — something bitter, something light, before dinner.",
+        "withoutLandmark": "Join the early evening ritual in {zone}: a drink before dinner, nowhere to be yet."
+      },
+      "medium": {
+        "withLandmark": "Order a local aperitif near {landmark} and eat whatever comes with it without asking first.",
+        "withoutLandmark": "Go to the most sociable-looking terrace in {zone} at aperitivo hour and order something bitter."
+      },
+      "high": {
+        "withLandmark": "Sit at the busiest bar near {landmark} at the exact moment the evening crowd arrives.",
+        "withoutLandmark": "Find the bar in {zone} that fills up fastest at 6pm and position yourself in the middle of it."
+      }
+    },
+    "moreText": "The aperitivo hour — that pre-dinner ritual of a drink and something small to eat — is one of the great social inventions. It's not dinner. It's not drinks. It's the specific pleasure of a city in transition, of people who've finished work and haven't started the evening yet. Join it."
+  },
+  {
+    "id": "evening-food-stall",
+    "category": "food",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "markets",
+      "commercial",
+      "food"
+    ],
+    "energyState": "food",
+    "shortDesc": "Evening street food",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find an evening food stall near {landmark} and eat something made right in front of you.",
+        "withoutLandmark": "Find where the street food is happening in {zone} in the evening and eat something made on the spot."
+      },
+      "medium": {
+        "withLandmark": "Eat at the busiest evening food stall near {landmark}. Queue if you have to.",
+        "withoutLandmark": "Find the stall in {zone} with the longest evening queue and eat whatever they're selling."
+      },
+      "high": {
+        "withLandmark": "Find a street food vendor near {landmark} selling something you've never eaten and order it.",
+        "withoutLandmark": "Order the one thing at a {zone} evening stall that you have absolutely no context for."
+      }
+    },
+    "moreText": "Evening street food is different from the lunchtime variety — the light, the crowd, the specific energy of people eating standing up after dark. The best stalls have been there a long time, are known by reputation rather than review, and serve one thing very well."
+  },
+  {
+    "id": "evening-live-music",
+    "category": "social",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "nightlife",
+      "arts",
+      "commercial"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Live music",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a bar or venue near {landmark} with live music and let the evening happen around it.",
+        "withoutLandmark": "Find somewhere in {zone} where music is being played live tonight and go in."
+      },
+      "medium": {
+        "withLandmark": "Near {landmark}, go into the first place you hear music from outside.",
+        "withoutLandmark": "Walk through {zone} until you hear music. Go in wherever it leads you."
+      },
+      "high": {
+        "withLandmark": "Find a venue near {landmark} you know nothing about and stay for the whole set.",
+        "withoutLandmark": "Find a music venue in {zone} with a name you don't recognise and stay until the music stops."
+      }
+    },
+    "moreText": "Live music in a small venue in a city you don't know is one of the more transportive experiences travel can offer. You don't know the songs, you don't know the venue, and you're sharing something real with people who came specifically for this. Stay for the whole set."
+  },
+  {
+    "id": "evening-last-light",
+    "category": "exploration",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "parks",
+      "historic"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Chasing last light",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk slowly toward {landmark} in the last hour of daylight and pay attention to what the city looks like now.",
+        "withoutLandmark": "Walk through {zone} in the last hour of daylight. Notice how different everything looks."
+      },
+      "medium": {
+        "withLandmark": "Follow the light toward {landmark} as it drops — the city is at its most photogenic right now.",
+        "withoutLandmark": "Follow whatever's lit up in {zone} as the day ends. The city is showing you a different version of itself."
+      },
+      "high": {
+        "withLandmark": "Photograph only the last 20 minutes of light near {landmark}.",
+        "withoutLandmark": "Walk through {zone} for the last 20 minutes of daylight and do nothing but notice."
+      }
+    },
+    "moreText": "The last 20 minutes of daylight in a city are worth stopping for. Everything slows down, the shadows go horizontal, and the surfaces you've been walking past all day suddenly look like something worth photographing. The city briefly becomes cinematic."
+  },
+  {
+    "id": "evening-rooftop",
+    "category": "relaxation",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "viewpoint",
+      "commercial",
+      "nightlife"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Rooftop evening drink",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a rooftop bar or elevated terrace near {landmark} and end the day with a drink and a view.",
+        "withoutLandmark": "Find the rooftop or elevated terrace in {zone} and spend the last part of the evening there."
+      },
+      "medium": {
+        "withLandmark": "Get above {landmark} somewhere — a rooftop, a terrace — and watch {city} go dark.",
+        "withoutLandmark": "Find the highest bar in {zone} and order something while the city lights come on below you."
+      },
+      "high": {
+        "withLandmark": "Find the most unexpected rooftop near {landmark} — not the famous one — and get up there.",
+        "withoutLandmark": "Find a way onto a rooftop in {zone} that isn't obviously a bar and see what the city looks like from there."
+      }
+    },
+    "moreText": "A rooftop bar or terrace at dusk is a very good place to end a day. The city is visible all at once below you, the light is doing its best work, and the drink in your hand is incidental to the view. Stay until the city turns its lights on."
+  },
+  {
+    "id": "late-afternoon-drift",
+    "category": "exploration",
+    "timeSlots": [
+      "afternoon",
+      "evening"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "residential",
+      "arts"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Late afternoon drift",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Drift slowly away from {landmark} as the afternoon softens into early evening.",
+        "withoutLandmark": "Drift through {zone} as the afternoon softens into early evening — no plan, no destination."
+      },
+      "medium": {
+        "withLandmark": "Use {landmark} as your last fixed point and wander outward from there.",
+        "withoutLandmark": "Walk until you notice the light has changed and the energy of {zone} has shifted."
+      },
+      "high": {
+        "withLandmark": "Walk away from {landmark} in the direction you least expect to find something interesting.",
+        "withoutLandmark": "Pick the direction in {zone} you'd least expect to find something interesting. Walk that way."
+      }
+    },
+    "moreText": "The transition from afternoon to evening is one of the more beautiful hours in any city. The light is at its most amber, the streets are filling up differently, and the whole place is in a kind of productive limbo. Drifting without a purpose through this hour is exactly right."
+  },
+  {
+    "id": "slow-drink-afternoon",
+    "category": "social",
+    "timeSlots": [
+      "afternoon",
+      "evening"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "nightlife",
+      "waterfront"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Slow afternoon drink",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find somewhere near {landmark} for a slow drink and a bit of time to just be.",
+        "withoutLandmark": "Find a comfortable spot in {zone} for a drink and a bit of time to just be."
+      },
+      "medium": {
+        "withLandmark": "Order something local near {landmark} and watch the afternoon happen around you.",
+        "withoutLandmark": "Order something local in {zone} and watch the afternoon happen around you."
+      },
+      "high": {
+        "withLandmark": "Order the drink nearest to {landmark} that you can't identify and sit outside.",
+        "withoutLandmark": "Order the drink on the menu in {zone} that you can't identify. Sit outside."
+      }
+    },
+    "moreText": "There is no bad time for a slow drink somewhere comfortable, but the late afternoon is the best time. You've been walking all day. The city is still going. You have nowhere you absolutely need to be. One drink, taken slowly, while the afternoon becomes early evening."
+  },
+  {
+    "id": "city-observation",
+    "category": "exploration",
+    "timeSlots": [
+      "midday",
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "commercial",
+      "waterfront",
+      "parks"
+    ],
+    "energyState": "observe",
+    "shortDesc": "City observation",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a spot near {landmark} and watch the city moving around you.",
+        "withoutLandmark": "Find a spot in {zone} where you can sit and watch the city moving around you."
+      },
+      "medium": {
+        "withLandmark": "Stand near {landmark} and spend 10 minutes observing before deciding what to do next.",
+        "withoutLandmark": "Stop in {zone} and spend 10 minutes observing everything before deciding what to do next."
+      },
+      "high": {
+        "withLandmark": "Sit near {landmark} and count how many different languages you hear in 10 minutes.",
+        "withoutLandmark": "Sit in {zone} and count how many different languages you hear in 10 minutes."
+      }
+    },
+    "moreText": "Standing still in a moving city is a surprisingly interesting thing to do. You become the fixed point. Everything else is in motion. After about ten minutes, patterns start to emerge — the rhythms of the street, the people who keep appearing, the specific logic of how this particular corner works."
+  },
+  {
+    "id": "hidden-spot-hunt",
+    "category": "exploration",
+    "timeSlots": [
+      "midday",
+      "afternoon"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "historic",
+      "quiet"
+    ],
+    "energyState": "explore",
+    "shortDesc": "Hidden spot hunt",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Explore the less-visited streets around {landmark} and see what they hold.",
+        "withoutLandmark": "Explore the less-visited streets of {zone} and see what they hold."
+      },
+      "medium": {
+        "withLandmark": "Look for a passageway, courtyard, or alley near {landmark} that isn't on any map.",
+        "withoutLandmark": "Look for a passageway, courtyard, or alley in {zone} that isn't on any map."
+      },
+      "high": {
+        "withLandmark": "Starting at {landmark}, find the most hidden-feeling spot within a 10-minute walk.",
+        "withoutLandmark": "Find the most hidden-feeling spot in {zone} within a 10-minute walk from where you are now."
+      }
+    },
+    "moreText": "Every city has spaces that the main map doesn't show — the courtyard behind the courtyard, the passage that connects two streets that shouldn't connect, the garden that's technically private but nobody ever closes. Finding one of these is one of the better things exploration offers."
+  },
+  {
+    "id": "golden-hour-wander",
+    "category": "exploration",
+    "timeSlots": [
+      "afternoon",
+      "evening"
+    ],
+    "zoneAffinity": [
+      "walkable",
+      "waterfront",
+      "viewpoint"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Golden hour wander",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk near {landmark} in the golden hour — the light is doing something worth seeing.",
+        "withoutLandmark": "Walk through {zone} in the golden hour and let the light do the work."
+      },
+      "medium": {
+        "withLandmark": "Photograph {landmark} only in the golden light. Same place, completely different image.",
+        "withoutLandmark": "Walk through {zone} for one hour and photograph only what the low light is touching."
+      },
+      "high": {
+        "withLandmark": "Go wherever the light is best near {landmark} and stay until it's gone.",
+        "withoutLandmark": "Follow the light in {zone}. Walk toward whatever is most illuminated."
+      }
+    },
+    "moreText": "Golden hour in a city is a very brief window when everything looks like it was lit by a director. The low angle of the light makes ordinary streets extraordinary. It lasts about 30 minutes. The right move is to be walking somewhere without a fixed destination."
+  },
+  {
+    "id": "dusk-ritual",
+    "category": "relaxation",
+    "timeSlots": [
+      "afternoon",
+      "evening"
+    ],
+    "zoneAffinity": [
+      "parks",
+      "waterfront",
+      "residential"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Dusk transition",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Sit near {landmark} and be present for the exact moment the city transitions from day to evening.",
+        "withoutLandmark": "Find a place in {zone} where you can sit and simply watch the day end."
+      },
+      "medium": {
+        "withLandmark": "Walk from {landmark} toward wherever looks warmest in the fading light.",
+        "withoutLandmark": "Walk through {zone} at the exact moment the first lights come on and notice which ones come first."
+      },
+      "high": {
+        "withLandmark": "Stand still near {landmark} for the 10 minutes around actual sunset. Just be there.",
+        "withoutLandmark": "Stop walking in {zone} for 10 minutes around sunset. Stay still and let the city change around you."
+      }
+    },
+    "moreText": "There's a moment around dusk where the city changes its whole character — the daytime noise drops, the lights come on, the people change. It happens over about 20 minutes and it's worth stopping to observe. Find a place with a view and watch {city} shift."
+  },
+  {
+    "id": "late-night-streets",
+    "category": "exploration",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "nightlife",
+      "residential",
+      "commercial"
+    ],
+    "energyState": "finish",
+    "shortDesc": "Late night city",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Walk past {landmark} late in the evening and see what the city becomes after dark.",
+        "withoutLandmark": "Walk through {zone} late enough that the daytime version of it has completely disappeared."
+      },
+      "medium": {
+        "withLandmark": "Walk away from {landmark} and follow the sound of a city that hasn't gone to sleep yet.",
+        "withoutLandmark": "Walk through {zone} after dark and follow whatever sounds or lights pull you forward."
+      },
+      "high": {
+        "withLandmark": "Start at {landmark} at night and walk until the neighbourhood becomes unrecognisable.",
+        "withoutLandmark": "Walk through {zone} at night with no plan. The city after dark is a different city."
+      }
+    },
+    "moreText": "The city after midnight belongs to a very specific set of people — those finishing work, those starting their night, the ones who live their lives at this tempo. The streets are quieter but not empty, and the version of {city} you find at this hour is the one most visitors never see."
+  },
+  {
+    "id": "morning-journal",
+    "category": "relaxation",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "parks",
+      "quiet"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning writing",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a quiet spot near {landmark} with a coffee and spend the first part of the morning writing.",
+        "withoutLandmark": "Find somewhere comfortable in {zone} to sit with a drink and write before the day takes over."
+      },
+      "medium": {
+        "withLandmark": "Sit near {landmark} and write down everything you notice in the first 15 minutes — sounds, smells, movement.",
+        "withoutLandmark": "Sit somewhere in {zone} and describe the morning around you in as much detail as you can."
+      },
+      "high": {
+        "withLandmark": "Write a single paragraph near {landmark} that captures {city} in the morning. Make it honest.",
+        "withoutLandmark": "Write about {zone} as if no one has ever described it before. Be specific."
+      }
+    },
+    "moreText": "Writing in the morning forces a kind of attention that photography can't replicate. You have to translate what you're noticing into words, which means you actually notice it. Try to describe one very specific thing you can see from where you're sitting."
+  },
+  {
+    "id": "morning-run",
+    "category": "exploration",
+    "timeSlots": [
+      "morning"
+    ],
+    "zoneAffinity": [
+      "parks",
+      "walkable",
+      "waterfront"
+    ],
+    "energyState": "start",
+    "shortDesc": "Morning run",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Run a loop around {landmark} in the early morning before the day gets going.",
+        "withoutLandmark": "Run a loose circuit through {zone} — no headphones, just the sound of the neighbourhood waking up."
+      },
+      "medium": {
+        "withLandmark": "Run from {landmark} and keep going until you find something worth stopping for.",
+        "withoutLandmark": "Run through {zone} with no planned route. Turn whenever something looks worth running toward."
+      },
+      "high": {
+        "withLandmark": "Run away from {landmark} in the least obvious direction and see where you end up.",
+        "withoutLandmark": "Run through {zone} and make every turn based on what you haven't seen yet."
+      }
+    },
+    "moreText": "Running through a city is a completely different form of seeing it. You cover distances that feel impossible on foot and encounter neighbourhoods at the exact moment they're waking up. The city looks different at running pace."
+  },
+  {
+    "id": "midday-shade-hunt",
+    "category": "relaxation",
+    "timeSlots": [
+      "midday"
+    ],
+    "zoneAffinity": [
+      "parks",
+      "residential",
+      "historic"
+    ],
+    "energyState": "relax",
+    "shortDesc": "Find the shade",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find the coolest, most shaded spot near {landmark} and spend some time there.",
+        "withoutLandmark": "Find the best shade in {zone} and rest in it. Simple pleasures."
+      },
+      "medium": {
+        "withLandmark": "Walk from {landmark} and find a spot that's genuinely cool — a tree, a courtyard, a covered passage.",
+        "withoutLandmark": "Find the most comfortable shaded spot in {zone} that you'd never have discovered without heat forcing the search."
+      },
+      "high": {
+        "withLandmark": "Find the most unexpectedly cool or dark spot within 5 minutes of {landmark}.",
+        "withoutLandmark": "Walk through {zone} and chase the shade all the way until you find somewhere genuinely quiet and cool."
+      }
+    },
+    "moreText": "When it's hot, finding shade becomes a form of urban exploration in its own right. The good spots aren't marked — they tend to be in courtyards, under specific trees, in covered passages — places that require a bit of navigation to find. The reward is immediate and physical."
+  },
+  {
+    "id": "lunch-soup-bowl",
+    "category": "food",
+    "timeSlots": [
+      "lunch"
+    ],
+    "zoneAffinity": [
+      "cafes",
+      "residential",
+      "commercial"
+    ],
+    "energyState": "food",
+    "shortDesc": "A bowl of something warm",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Find a bowl of something warm and good near {landmark} — soup, stew, noodles. Sit and eat it slowly.",
+        "withoutLandmark": "Find a bowl of something warm and local in {zone} and eat it without rushing."
+      },
+      "medium": {
+        "withLandmark": "Near {landmark}, find the most local soup or broth on offer and eat it at the counter.",
+        "withoutLandmark": "Order a bowl of whatever the kitchen made today in {zone}. No substitutions."
+      },
+      "high": {
+        "withLandmark": "Order whatever comes in a bowl near {landmark} that you've never had before.",
+        "withoutLandmark": "Point at something warm in a pot in {zone} and eat it before looking it up."
+      }
+    },
+    "moreText": "A bowl of something slow and warm in the middle of the day is among the most civilised things you can do with your time. It requires sitting, it requires a spoon, and it creates a natural pause in a day that might otherwise just keep moving."
+  },
+  {
+    "id": "evening-late-dinner",
+    "category": "food",
+    "timeSlots": [
+      "evening"
+    ],
+    "zoneAffinity": [
+      "residential",
+      "commercial",
+      "cafes"
+    ],
+    "energyState": "food",
+    "shortDesc": "Late evening dinner",
+    "chaosVariants": {
+      "low": {
+        "withLandmark": "Eat late near {landmark} — after 8pm, when the restaurant settles into its second gear.",
+        "withoutLandmark": "Eat late in {zone}. The second sitting is often quieter, the food is better, the staff are more relaxed."
+      },
+      "medium": {
+        "withLandmark": "Go back to {landmark} at night and find somewhere to eat that's still full at this hour.",
+        "withoutLandmark": "Find somewhere in {zone} still serving proper food late and eat there. No chains."
+      },
+      "high": {
+        "withLandmark": "Find the most unpretentious late-night food near {landmark} and eat it before asking what it is.",
+        "withoutLandmark": "Walk until you find a kitchen in {zone} still going past 9pm. Eat there."
+      }
+    },
+    "moreText": "Eating late — actually late, after 9pm — is one of the pleasures that certain cities offer and others don't. The restaurant has found its rhythm, the first sitting has gone, the kitchen is relaxed, and you're eating at the time the people who made the food would eat. It's the right way."
+  }
+]

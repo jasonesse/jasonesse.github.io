@@ -1,9 +1,13 @@
+import type { AdventureRadius } from "../types";
+
 type Props = {
   city: string;
   chaosLevel: number;
   keptCount: number;
   totalCount: number;
   rerollCount: number;
+  hubZoneName?: string;
+  radius?: AdventureRadius;
 };
 
 function chaosLabel(level: number): string {
@@ -18,6 +22,8 @@ export function ScorePanel({
   keptCount,
   totalCount,
   rerollCount,
+  hubZoneName,
+  radius,
 }: Props) {
   return (
     <div className="score-panel">
@@ -26,6 +32,16 @@ export function ScorePanel({
         <li>
           Mode: <strong>{chaosLabel(chaosLevel)}</strong>
         </li>
+        {hubZoneName && (
+          <li>
+            Hub Zone: <strong>{hubZoneName}</strong>
+          </li>
+        )}
+        {radius && (
+          <li>
+            Radius: <strong>{radius.charAt(0).toUpperCase() + radius.slice(1)}</strong>
+          </li>
+        )}
         <li>
           Activities kept: <strong>{keptCount}/{totalCount}</strong>
         </li>

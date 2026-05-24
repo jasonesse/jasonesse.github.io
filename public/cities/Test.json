@@ -1,0 +1,1208 @@
+{
+  "city": "Montréal",
+  "cityId": "montreal",
+  "zones": [
+    {
+      "id": "old_montreal",
+      "name": "Old Montréal",
+      "tags": [
+        "historic",
+        "waterfront",
+        "walkable",
+        "tourist"
+      ],
+      "landmarks": [
+        {
+          "id": "notre_dame_basilica",
+          "name": "Notre-Dame Basilica",
+          "tags": [
+            "historic",
+            "religious",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Notre-Dame Basilica Sponsor",
+              "website": "https://example.com/notre_dame_basilica",
+              "promos": [
+                "Sponsored stop: Notre-Dame Basilica"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "old_port",
+          "name": "Old Port",
+          "tags": [
+            "waterfront",
+            "iconic",
+            "walkable"
+          ],
+          "sponsors": [
+            {
+              "name": "Old Port Sponsor",
+              "website": "https://example.com/old_port",
+              "promos": [
+                "Sponsored stop: Old Port"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bonsecours_market",
+          "name": "Bonsecours Market",
+          "tags": [
+            "historic",
+            "market",
+            "architecture"
+          ],
+          "sponsors": [
+            {
+              "name": "Bonsecours Market Sponsor",
+              "website": "https://example.com/bonsecours_market",
+              "promos": [
+                "Sponsored stop: Bonsecours Market"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "place_jacques_cartier",
+          "name": "Place Jacques-Cartier",
+          "tags": [
+            "historic",
+            "square"
+          ],
+          "sponsors": [
+            {
+              "name": "Place Jacques-Cartier Sponsor",
+              "website": "https://example.com/place_jacques_cartier",
+              "promos": [
+                "Sponsored stop: Place Jacques-Cartier"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "clock_tower",
+          "name": "Clock Tower",
+          "tags": [
+            "waterfront",
+            "historic"
+          ],
+          "sponsors": [
+            {
+              "name": "Clock Tower Sponsor",
+              "website": "https://example.com/clock_tower",
+              "promos": [
+                "Sponsored stop: Clock Tower"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pointe_a_calliere",
+          "name": "Pointe-à-Callière Museum",
+          "tags": [
+            "museum",
+            "history"
+          ],
+          "sponsors": [
+            {
+              "name": "Pointe-à-Callière Museum Sponsor",
+              "website": "https://example.com/pointe_a_calliere",
+              "promos": [
+                "Sponsored stop: Pointe-à-Callière Museum"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "place_darmes",
+          "name": "Place d'Armes",
+          "tags": [
+            "historic",
+            "square"
+          ],
+          "sponsors": [
+            {
+              "name": "Place d'Armes Sponsor",
+              "website": "https://example.com/place_darmes",
+              "promos": [
+                "Sponsored stop: Place d'Armes"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Old Montréal Sponsor",
+          "website": "https://example.com/old_montreal",
+          "promos": [
+            "Visit Old Montréal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "downtown",
+      "name": "Downtown",
+      "tags": [
+        "commercial",
+        "arts",
+        "entertainment"
+      ],
+      "landmarks": [
+        {
+          "id": "place_des_arts",
+          "name": "Place des Arts",
+          "tags": [
+            "arts",
+            "festival",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Place des Arts Sponsor",
+              "website": "https://example.com/place_des_arts",
+              "promos": [
+                "Sponsored stop: Place des Arts"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mcgill_university",
+          "name": "McGill University",
+          "tags": [
+            "historic",
+            "education"
+          ],
+          "sponsors": [
+            {
+              "name": "McGill University Sponsor",
+              "website": "https://example.com/mcgill_university",
+              "promos": [
+                "Sponsored stop: McGill University"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bell_centre",
+          "name": "Bell Centre",
+          "tags": [
+            "sports",
+            "events"
+          ],
+          "sponsors": [
+            {
+              "name": "Bell Centre Sponsor",
+              "website": "https://example.com/bell_centre",
+              "promos": [
+                "Sponsored stop: Bell Centre"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "place_ville_marie",
+          "name": "Place Ville Marie",
+          "tags": [
+            "architecture",
+            "viewpoint"
+          ],
+          "sponsors": [
+            {
+              "name": "Place Ville Marie Sponsor",
+              "website": "https://example.com/place_ville_marie",
+              "promos": [
+                "Sponsored stop: Place Ville Marie"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "the_ring",
+          "name": "The Ring",
+          "tags": [
+            "art",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "The Ring Sponsor",
+              "website": "https://example.com/the_ring",
+              "promos": [
+                "Sponsored stop: The Ring"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mary_queen_cathedral",
+          "name": "Mary Queen of the World Cathedral",
+          "tags": [
+            "historic",
+            "religious"
+          ],
+          "sponsors": [
+            {
+              "name": "Mary Queen of the World Cathedral Sponsor",
+              "website": "https://example.com/mary_queen_cathedral",
+              "promos": [
+                "Sponsored stop: Mary Queen of the World Cathedral"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reso",
+          "name": "Underground City (RÉSO)",
+          "tags": [
+            "shopping",
+            "urban"
+          ],
+          "sponsors": [
+            {
+              "name": "Underground City (RÉSO) Sponsor",
+              "website": "https://example.com/reso",
+              "promos": [
+                "Sponsored stop: Underground City (RÉSO)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "museum_of_fine_arts",
+          "name": "Montréal Museum of Fine Arts",
+          "tags": [
+            "museum",
+            "arts"
+          ],
+          "sponsors": [
+            {
+              "name": "Montréal Museum of Fine Arts Sponsor",
+              "website": "https://example.com/museum_of_fine_arts",
+              "promos": [
+                "Sponsored stop: Montréal Museum of Fine Arts"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Downtown Sponsor",
+          "website": "https://example.com/downtown",
+          "promos": [
+            "Visit Downtown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plateau",
+      "name": "Plateau-Mont-Royal",
+      "tags": [
+        "walkable",
+        "cafes",
+        "arts"
+      ],
+      "landmarks": [
+        {
+          "id": "mount_royal",
+          "name": "Mount Royal",
+          "tags": [
+            "nature",
+            "viewpoint"
+          ],
+          "sponsors": [
+            {
+              "name": "Mount Royal Sponsor",
+              "website": "https://example.com/mount_royal",
+              "promos": [
+                "Sponsored stop: Mount Royal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mont_royal_chalet",
+          "name": "Mount Royal Chalet",
+          "tags": [
+            "viewpoint",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Mount Royal Chalet Sponsor",
+              "website": "https://example.com/mont_royal_chalet",
+              "promos": [
+                "Sponsored stop: Mount Royal Chalet"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mount_royal_cross",
+          "name": "Mount Royal Cross",
+          "tags": [
+            "monument",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Mount Royal Cross Sponsor",
+              "website": "https://example.com/mount_royal_cross",
+              "promos": [
+                "Sponsored stop: Mount Royal Cross"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "parc_lafontaine",
+          "name": "Parc La Fontaine",
+          "tags": [
+            "park",
+            "nature"
+          ],
+          "sponsors": [
+            {
+              "name": "Parc La Fontaine Sponsor",
+              "website": "https://example.com/parc_lafontaine",
+              "promos": [
+                "Sponsored stop: Parc La Fontaine"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "schwartz_deli",
+          "name": "Schwartz's",
+          "tags": [
+            "food",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Schwartz's Sponsor",
+              "website": "https://example.com/schwartz_deli",
+              "promos": [
+                "Sponsored stop: Schwartz's"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "avenue_mont_royal",
+          "name": "Avenue Mont-Royal",
+          "tags": [
+            "shopping",
+            "walkable"
+          ],
+          "sponsors": [
+            {
+              "name": "Avenue Mont-Royal Sponsor",
+              "website": "https://example.com/avenue_mont_royal",
+              "promos": [
+                "Sponsored stop: Avenue Mont-Royal"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Plateau-Mont-Royal Sponsor",
+          "website": "https://example.com/plateau",
+          "promos": [
+            "Visit Plateau-Mont-Royal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mile_end",
+      "name": "Mile End",
+      "tags": [
+        "cafes",
+        "food",
+        "arts"
+      ],
+      "landmarks": [
+        {
+          "id": "st_viateur_bagel",
+          "name": "St-Viateur Bagel",
+          "tags": [
+            "food",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "St-Viateur Bagel Sponsor",
+              "website": "https://example.com/st_viateur_bagel",
+              "promos": [
+                "Sponsored stop: St-Viateur Bagel"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fairmount_bagel",
+          "name": "Fairmount Bagel",
+          "tags": [
+            "food",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Fairmount Bagel Sponsor",
+              "website": "https://example.com/fairmount_bagel",
+              "promos": [
+                "Sponsored stop: Fairmount Bagel"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wilenskys",
+          "name": "Wilensky's",
+          "tags": [
+            "food",
+            "historic"
+          ],
+          "sponsors": [
+            {
+              "name": "Wilensky's Sponsor",
+              "website": "https://example.com/wilenskys",
+              "promos": [
+                "Sponsored stop: Wilensky's"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "murals_mile_end",
+          "name": "Mile End Murals",
+          "tags": [
+            "art",
+            "street_art"
+          ],
+          "sponsors": [
+            {
+              "name": "Mile End Murals Sponsor",
+              "website": "https://example.com/murals_mile_end",
+              "promos": [
+                "Sponsored stop: Mile End Murals"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Mile End Sponsor",
+          "website": "https://example.com/mile_end",
+          "promos": [
+            "Visit Mile End"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "little_italy",
+      "name": "Little Italy",
+      "tags": [
+        "food",
+        "markets",
+        "cafes"
+      ],
+      "landmarks": [
+        {
+          "id": "jean_talon_market",
+          "name": "Jean-Talon Market",
+          "tags": [
+            "market",
+            "food",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Jean-Talon Market Sponsor",
+              "website": "https://example.com/jean_talon_market",
+              "promos": [
+                "Sponsored stop: Jean-Talon Market"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "madonna_della_difesa",
+          "name": "Madonna della Difesa Church",
+          "tags": [
+            "historic",
+            "religious"
+          ],
+          "sponsors": [
+            {
+              "name": "Madonna della Difesa Church Sponsor",
+              "website": "https://example.com/madonna_della_difesa",
+              "promos": [
+                "Sponsored stop: Madonna della Difesa Church"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dante_park",
+          "name": "Parc Dante",
+          "tags": [
+            "park"
+          ],
+          "sponsors": [
+            {
+              "name": "Parc Dante Sponsor",
+              "website": "https://example.com/dante_park",
+              "promos": [
+                "Sponsored stop: Parc Dante"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Little Italy Sponsor",
+          "website": "https://example.com/little_italy",
+          "promos": [
+            "Visit Little Italy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hochelaga",
+      "name": "Hochelaga-Maisonneuve",
+      "tags": [
+        "historic",
+        "family",
+        "parks"
+      ],
+      "landmarks": [
+        {
+          "id": "olympic_stadium",
+          "name": "Olympic Stadium",
+          "tags": [
+            "architecture",
+            "sports",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Olympic Stadium Sponsor",
+              "website": "https://example.com/olympic_stadium",
+              "promos": [
+                "Sponsored stop: Olympic Stadium"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "montreal_tower",
+          "name": "Montréal Tower",
+          "tags": [
+            "viewpoint",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Montréal Tower Sponsor",
+              "website": "https://example.com/montreal_tower",
+              "promos": [
+                "Sponsored stop: Montréal Tower"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "biodome",
+          "name": "Montréal Biodôme",
+          "tags": [
+            "nature",
+            "family",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Montréal Biodôme Sponsor",
+              "website": "https://example.com/biodome",
+              "promos": [
+                "Sponsored stop: Montréal Biodôme"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "botanical_garden",
+          "name": "Montréal Botanical Garden",
+          "tags": [
+            "nature",
+            "gardens"
+          ],
+          "sponsors": [
+            {
+              "name": "Montréal Botanical Garden Sponsor",
+              "website": "https://example.com/botanical_garden",
+              "promos": [
+                "Sponsored stop: Montréal Botanical Garden"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "insectarium",
+          "name": "Montréal Insectarium",
+          "tags": [
+            "museum",
+            "family"
+          ],
+          "sponsors": [
+            {
+              "name": "Montréal Insectarium Sponsor",
+              "website": "https://example.com/insectarium",
+              "promos": [
+                "Sponsored stop: Montréal Insectarium"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "planetarium",
+          "name": "Rio Tinto Alcan Planetarium",
+          "tags": [
+            "science",
+            "family"
+          ],
+          "sponsors": [
+            {
+              "name": "Rio Tinto Alcan Planetarium Sponsor",
+              "website": "https://example.com/planetarium",
+              "promos": [
+                "Sponsored stop: Rio Tinto Alcan Planetarium"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Hochelaga-Maisonneuve Sponsor",
+          "website": "https://example.com/hochelaga",
+          "promos": [
+            "Visit Hochelaga-Maisonneuve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "griffintown",
+      "name": "Griffintown",
+      "tags": [
+        "canal",
+        "waterfront",
+        "modern"
+      ],
+      "landmarks": [
+        {
+          "id": "farine_five_roses",
+          "name": "Farine Five Roses Sign",
+          "tags": [
+            "iconic",
+            "industrial"
+          ],
+          "sponsors": [
+            {
+              "name": "Farine Five Roses Sign Sponsor",
+              "website": "https://example.com/farine_five_roses",
+              "promos": [
+                "Sponsored stop: Farine Five Roses Sign"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "habitat67_view",
+          "name": "Habitat 67 Viewpoint",
+          "tags": [
+            "architecture",
+            "viewpoint"
+          ],
+          "sponsors": [
+            {
+              "name": "Habitat 67 Viewpoint Sponsor",
+              "website": "https://example.com/habitat67_view",
+              "promos": [
+                "Sponsored stop: Habitat 67 Viewpoint"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Griffintown Sponsor",
+          "website": "https://example.com/griffintown",
+          "promos": [
+            "Visit Griffintown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saint_henri",
+      "name": "Saint-Henri",
+      "tags": [
+        "canal",
+        "food",
+        "cycling"
+      ],
+      "landmarks": [
+        {
+          "id": "lachine_canal",
+          "name": "Lachine Canal",
+          "tags": [
+            "cycling",
+            "waterfront",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Lachine Canal Sponsor",
+              "website": "https://example.com/lachine_canal",
+              "promos": [
+                "Sponsored stop: Lachine Canal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "atwater_market",
+          "name": "Atwater Market",
+          "tags": [
+            "food",
+            "market",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Atwater Market Sponsor",
+              "website": "https://example.com/atwater_market",
+              "promos": [
+                "Sponsored stop: Atwater Market"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Saint-Henri Sponsor",
+          "website": "https://example.com/saint_henri",
+          "promos": [
+            "Visit Saint-Henri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outremont",
+      "name": "Outremont",
+      "tags": [
+        "residential",
+        "parks"
+      ],
+      "landmarks": [
+        {
+          "id": "outremont_theatre",
+          "name": "Théâtre Outremont",
+          "tags": [
+            "arts",
+            "historic"
+          ],
+          "sponsors": [
+            {
+              "name": "Théâtre Outremont Sponsor",
+              "website": "https://example.com/outremont_theatre",
+              "promos": [
+                "Sponsored stop: Théâtre Outremont"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Outremont Sponsor",
+          "website": "https://example.com/outremont",
+          "promos": [
+            "Visit Outremont"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cote_des_neiges",
+      "name": "Côte-des-Neiges",
+      "tags": [
+        "multicultural",
+        "historic"
+      ],
+      "landmarks": [
+        {
+          "id": "st_josephs_oratory",
+          "name": "Saint Joseph's Oratory",
+          "tags": [
+            "religious",
+            "historic",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Saint Joseph's Oratory Sponsor",
+              "website": "https://example.com/st_josephs_oratory",
+              "promos": [
+                "Sponsored stop: Saint Joseph's Oratory"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Côte-des-Neiges Sponsor",
+          "website": "https://example.com/cote_des_neiges",
+          "promos": [
+            "Visit Côte-des-Neiges"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "westmount",
+      "name": "Westmount",
+      "tags": [
+        "historic",
+        "parks",
+        "viewpoints"
+      ],
+      "landmarks": [
+        {
+          "id": "westmount_summit",
+          "name": "Westmount Summit",
+          "tags": [
+            "nature",
+            "viewpoint"
+          ],
+          "sponsors": [
+            {
+              "name": "Westmount Summit Sponsor",
+              "website": "https://example.com/westmount_summit",
+              "promos": [
+                "Sponsored stop: Westmount Summit"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "westmount_park",
+          "name": "Westmount Park",
+          "tags": [
+            "park"
+          ],
+          "sponsors": [
+            {
+              "name": "Westmount Park Sponsor",
+              "website": "https://example.com/westmount_park",
+              "promos": [
+                "Sponsored stop: Westmount Park"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Westmount Sponsor",
+          "website": "https://example.com/westmount",
+          "promos": [
+            "Visit Westmount"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verdun",
+      "name": "Verdun",
+      "tags": [
+        "waterfront",
+        "nature"
+      ],
+      "landmarks": [
+        {
+          "id": "verdun_beach",
+          "name": "Verdun Beach",
+          "tags": [
+            "waterfront",
+            "beach"
+          ],
+          "sponsors": [
+            {
+              "name": "Verdun Beach Sponsor",
+              "website": "https://example.com/verdun_beach",
+              "promos": [
+                "Sponsored stop: Verdun Beach"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wellington_street",
+          "name": "Wellington Street",
+          "tags": [
+            "shopping",
+            "walkable"
+          ],
+          "sponsors": [
+            {
+              "name": "Wellington Street Sponsor",
+              "website": "https://example.com/wellington_street",
+              "promos": [
+                "Sponsored stop: Wellington Street"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Verdun Sponsor",
+          "website": "https://example.com/verdun",
+          "promos": [
+            "Visit Verdun"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parc_jean_drapeau",
+      "name": "Parc Jean-Drapeau",
+      "tags": [
+        "nature",
+        "waterfront",
+        "events"
+      ],
+      "landmarks": [
+        {
+          "id": "biosphere",
+          "name": "Biosphere",
+          "tags": [
+            "expo67",
+            "iconic",
+            "museum"
+          ],
+          "sponsors": [
+            {
+              "name": "Biosphere Sponsor",
+              "website": "https://example.com/biosphere",
+              "promos": [
+                "Sponsored stop: Biosphere"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "la_ronde",
+          "name": "La Ronde",
+          "tags": [
+            "amusement_park"
+          ],
+          "sponsors": [
+            {
+              "name": "La Ronde Sponsor",
+              "website": "https://example.com/la_ronde",
+              "promos": [
+                "Sponsored stop: La Ronde"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "casino_montreal",
+          "name": "Casino de Montréal",
+          "tags": [
+            "entertainment"
+          ],
+          "sponsors": [
+            {
+              "name": "Casino de Montréal Sponsor",
+              "website": "https://example.com/casino_montreal",
+              "promos": [
+                "Sponsored stop: Casino de Montréal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "circuit_gilles_villeneuve",
+          "name": "Circuit Gilles Villeneuve",
+          "tags": [
+            "formula1",
+            "sports"
+          ],
+          "sponsors": [
+            {
+              "name": "Circuit Gilles Villeneuve Sponsor",
+              "website": "https://example.com/circuit_gilles_villeneuve",
+              "promos": [
+                "Sponsored stop: Circuit Gilles Villeneuve"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "expo67_site",
+          "name": "Expo 67 Site",
+          "tags": [
+            "historic"
+          ],
+          "sponsors": [
+            {
+              "name": "Expo 67 Site Sponsor",
+              "website": "https://example.com/expo67_site",
+              "promos": [
+                "Sponsored stop: Expo 67 Site"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Parc Jean-Drapeau Sponsor",
+          "website": "https://example.com/parc_jean_drapeau",
+          "promos": [
+            "Visit Parc Jean-Drapeau"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chinatown",
+      "name": "Chinatown",
+      "tags": [
+        "food",
+        "culture",
+        "historic"
+      ],
+      "landmarks": [
+        {
+          "id": "chinatown_gate",
+          "name": "Chinatown Gate",
+          "tags": [
+            "culture",
+            "iconic"
+          ],
+          "sponsors": [
+            {
+              "name": "Chinatown Gate Sponsor",
+              "website": "https://example.com/chinatown_gate",
+              "promos": [
+                "Sponsored stop: Chinatown Gate"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sun_yat_sen_square",
+          "name": "Sun Yat-Sen Square",
+          "tags": [
+            "culture"
+          ],
+          "sponsors": [
+            {
+              "name": "Sun Yat-Sen Square Sponsor",
+              "website": "https://example.com/sun_yat_sen_square",
+              "promos": [
+                "Sponsored stop: Sun Yat-Sen Square"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Chinatown Sponsor",
+          "website": "https://example.com/chinatown",
+          "promos": [
+            "Visit Chinatown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "west_island",
+      "name": "West Island",
+      "tags": [
+        "nature",
+        "waterfront"
+      ],
+      "landmarks": [
+        {
+          "id": "cap_saint_jacques",
+          "name": "Cap-Saint-Jacques Nature Park",
+          "tags": [
+            "nature",
+            "beach"
+          ],
+          "sponsors": [
+            {
+              "name": "Cap-Saint-Jacques Nature Park Sponsor",
+              "website": "https://example.com/cap_saint_jacques",
+              "promos": [
+                "Sponsored stop: Cap-Saint-Jacques Nature Park"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sainte_anne_boardwalk",
+          "name": "Sainte-Anne-de-Bellevue Boardwalk",
+          "tags": [
+            "waterfront"
+          ],
+          "sponsors": [
+            {
+              "name": "Sainte-Anne-de-Bellevue Boardwalk Sponsor",
+              "website": "https://example.com/sainte_anne_boardwalk",
+              "promos": [
+                "Sponsored stop: Sainte-Anne-de-Bellevue Boardwalk"
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "West Island Sponsor",
+          "website": "https://example.com/west_island",
+          "promos": [
+            "Visit West Island"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -110,6 +110,14 @@ export function ActivityCard({
               {detailsExpanded && (
                 <div className="activity-card__detail-body">
                   <p className="activity-card__long-text">{activity.finalText}</p>
+                  <button
+                    type="button"
+                    className="btn btn--explore activity-card__explore-inline"
+                    onClick={onExplore}
+                    title="Search the web for this activity and city"
+                  >
+                    Explore →
+                  </button>
                 </div>
               )}
             </>
@@ -187,14 +195,6 @@ export function ActivityCard({
           }
         >
           Reroll
-        </button>
-        <button
-          type="button"
-          className="btn btn--explore"
-          onClick={onExplore}
-          title="Search the web for this activity and city"
-        >
-          Explore
         </button>
       </div>
     </div>
