@@ -80,6 +80,7 @@ export type Zone = {
   name: string;
   tags: string[];
   adjacentZones?: string[];
+  sponsors?: SponsoredInfo[];
 };
 
 // ─── V2 Landmark ─────────────────────────────────────────────────────────────
@@ -88,7 +89,7 @@ export type Landmark = {
   name: string;
   zone: string;
   tags: string[];
-  iconicScore: number;
+  sponsors?: SponsoredInfo[];
 };
 
 // ─── V2 City ─────────────────────────────────────────────────────────────────

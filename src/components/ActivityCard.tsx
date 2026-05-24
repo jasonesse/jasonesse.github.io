@@ -27,7 +27,6 @@ export function ActivityCard({
   onIgnore,
 }: Props) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
-  const [sponsorsExpanded, setSponsorsExpanded] = useState(false);
   const [justKept, setJustKept] = useState(false);
   const previousKept = useRef(isKept);
   const hasLongDetails = activity.finalText.trim() !== activity.shortText.trim();
@@ -93,58 +92,32 @@ export function ActivityCard({
 
       {(hasLongDetails || hasSponsored) && (
         <div className="activity-card__details">
-          {hasLongDetails && (
-            <>
-              <button
-                type="button"
-                className="activity-card__expand"
-                onClick={() => setDetailsExpanded((v) => !v)}
-                aria-expanded={detailsExpanded}
-              >
-                <span className={`activity-card__expand-arrow ${detailsExpanded ? "is-open" : ""}`}>
-                  ▾
-                </span>
-                {detailsExpanded ? "Hide more" : "More"}
-              </button>
+          <button
+            type="button"
+            className="activity-card__expand"
+            onClick={() => setDetailsExpanded((v) => !v)}
+            aria-expanded={detailsExpanded}
+          >
+            <span className={`activity-card__expand-arrow ${detailsExpanded ? "is-open" : ""}`}>
+              ▾
+            </span>
+            {detailsExpanded ? "Hide more" : "More"}
+          </button>
 
-              {detailsExpanded && (
-                <div className="activity-card__detail-body">
-                  <p className="activity-card__long-text">{activity.finalText}</p>
-                  <button
-                    type="button"
-                    className="btn btn--explore activity-card__explore-inline"
-                    onClick={onExplore}
-                    title="Search the web for this activity and city"
-                  >
-                    Explore →
-                  </button>
-                </div>
+          {detailsExpanded && (
+            <div className="activity-card__detail-body">
+              {hasLongDetails && (
+                <p className="activity-card__long-text">{activity.finalText}</p>
               )}
-            </>
-          )}
 
-          {hasSponsored && (
-            <>
-              <button
-                type="button"
-                className="activity-card__expand activity-card__expand--sponsors"
-                onClick={() => setSponsorsExpanded((v) => !v)}
-                aria-expanded={sponsorsExpanded}
-              >
-                <span className={`activity-card__expand-arrow ${sponsorsExpanded ? "is-open" : ""}`}>
-                  ▾
-                </span>
-                {sponsorsExpanded ? "Hide sponsors" : "Sponsors"}
-              </button>
-
-              {sponsorsExpanded && (
-                <div className="activity-card__detail-body">
+              {hasSponsored && (
+                <div className="activity-card__sponsors-section">
+                  <p className="activity-card__sponsors-heading">Sponsors</p>
                   {sponsors.map((sponsor, sponsorIndex) => {
                     const hasPromos = Array.isArray(sponsor.promos) && sponsor.promos.length > 0;
                     return (
                       <div className="activity-card__sponsored" key={`${activity.id}-sponsor-${sponsorIndex}`}>
-                        <p className="activity-card__sponsored-title">Sponsor {sponsorIndex + 1}</p>
-                        {sponsor.name && <p>{sponsor.name}</p>}
+                        {sponsor.name && <p className="activity-card__sponsored-name">{sponsor.name}</p>}
                         {sponsor.website && (
                           <a
                             href={sponsor.website}
@@ -168,7 +141,16 @@ export function ActivityCard({
                   })}
                 </div>
               )}
-            </>
+
+              <button
+                type="button"
+                className="btn btn--explore activity-card__explore-inline"
+                onClick={onExplore}
+                title="Search the web for this activity and city"
+              >
+                Explore →
+              </button>
+            </div>
           )}
         </div>
       )}

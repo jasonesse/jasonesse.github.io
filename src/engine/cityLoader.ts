@@ -60,6 +60,7 @@ function normalizeCityPayload(raw: unknown): CityV2 {
     name: z.name as string,
     tags: (z.tags as string[]) ?? [],
     adjacentZones: (z.adjacentZones as string[] | undefined) ?? [],
+    sponsors: (z.sponsors as {name?:string;website?:string;promos?:unknown[]}[] | undefined) ?? [],
   }));
 
   let landmarks = (c.landmarks as CityV2["landmarks"] | undefined) ?? [];
@@ -75,7 +76,7 @@ function normalizeCityPayload(raw: unknown): CityV2 {
           name: lm.name as string,
           zone: z.id as string,
           tags: (lm.tags as string[]) ?? [],
-          iconicScore: (lm.iconicScore as number) ?? 0,
+          sponsors: (lm.sponsors as {name?:string;website?:string;promos?:unknown[]}[] | undefined) ?? [],
         });
       }
     }

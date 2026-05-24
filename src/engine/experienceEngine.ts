@@ -12,6 +12,7 @@ import type {
   EnergyState,
   Zone,
   Landmark,
+  SponsoredInfo,
 } from "../types";
 
 const TIME_SLOTS: TimeSlot[] = [
@@ -129,6 +130,12 @@ export function pickExperienceForSlot(
   };
 }
 
+function pickSponsors(zone: Zone, landmark: Landmark | null): SponsoredInfo[] {
+  const lmSponsors = landmark?.sponsors ?? [];
+  if (lmSponsors.length > 0) return lmSponsors;
+  return zone.sponsors ?? [];
+}
+
 // ─── Full day generation ──────────────────────────────────────────────────────
 
 export function generateDayV2(
@@ -155,9 +162,9 @@ export function generateDayV2(
   if (iconicMode && city.landmarks.length > 0) {
     const allowedZoneIds = new Set(allowedZones.map((z) => z.id));
     const eligible = city.landmarks.filter((l) => allowedZoneIds.has(l.zone));
-    if (eligible.length > 0) {
-      const sorted = [...eligible].sort((a, b) => b.iconicScore - a.iconicScore);
-      const pool = sorted.slice(0, Math.min(3, sorted.length));
+    const iconicEligible = eligible.filter((l) => l.tags.includes("iconic"));
+    const pool = iconicEligible.length > 0 ? iconicEligible : eligible;
+    if (pool.length > 0) {
       iconicLandmark = pool[Math.floor(Math.random() * pool.length)];
     }
   }
@@ -199,6 +206,7 @@ export function generateDayV2(
       landmark,
       city.city
     );
+    const sponsors = pickSponsors(pick.zone, landmark);
 
     result.push({
       id: pick.activity.id,
@@ -210,6 +218,8 @@ export function generateDayV2(
       zoneId: pick.zone.id,
       landmarkId: landmark?.id,
       landmarkName: landmark?.name,
+      sponsored: sponsors[0],
+      sponsors,
       energyState: pick.activity.energyState,
     });
   }
