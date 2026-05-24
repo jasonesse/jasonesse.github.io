@@ -7,8 +7,7 @@ const DESKTOP_COLLAPSE_STORAGE_KEY = "crg_nav_collapsed_v1";
 const NAV_ITEMS = [
   { to: "/", label: "Home", icon: "🏠" },
   { to: "/run", label: "Run", icon: "▶" },
-  { to: "/result", label: "Result", icon: "✓" },
-  { to: "/history", label: "Calendar", icon: "🗓" },
+  { to: "/result", label: "Results", icon: "🗓" },
   { to: "/ignored", label: "Ignored", icon: "🚫" },
 ] as const;
 

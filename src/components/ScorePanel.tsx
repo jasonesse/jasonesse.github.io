@@ -19,8 +19,6 @@ export function ScorePanel({
   totalCount,
   rerollCount,
 }: Props) {
-  const pct = totalCount > 0 ? Math.round((keptCount / totalCount) * 100) : 0;
-
   return (
     <div className="score-panel">
       <h3 className="score-panel__city">{city}</h3>
@@ -30,9 +28,6 @@ export function ScorePanel({
         </li>
         <li>
           Activities kept: <strong>{keptCount}/{totalCount}</strong>
-        </li>
-        <li>
-          Kept rate: <strong>{pct}%</strong>
         </li>
         <li>
           Rerolls used: <strong>{rerollCount}</strong>

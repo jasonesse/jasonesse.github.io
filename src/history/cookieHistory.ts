@@ -3,6 +3,7 @@ import type { DayRun } from "../types";
 type KeptItem = {
   id: string;
   timeSlot: string;
+  shortText?: string;
   finalText: string;
 };
 
@@ -10,6 +11,8 @@ export type DayHistoryRecord = {
   date: string;
   city: string;
   keptItems: KeptItem[];
+  chaosLevel?: number;
+  totalActivities?: number;
 };
 
 type HistoryStore = {
@@ -87,7 +90,12 @@ function persistStore(store: HistoryStore): void {
 export function saveKeptRunForToday(run: DayRun, keptIds: Set<string>): void {
   const keptItems = run.activities
     .filter((a) => keptIds.has(a.id))
-    .map((a) => ({ id: a.id, timeSlot: a.timeSlot, finalText: a.finalText }));
+    .map((a) => ({
+      id: a.id,
+      timeSlot: a.timeSlot,
+      shortText: a.shortText,
+      finalText: a.finalText,
+    }));
 
   if (keptItems.length === 0) return;
 
@@ -99,6 +107,8 @@ export function saveKeptRunForToday(run: DayRun, keptIds: Set<string>): void {
     date,
     city: run.city,
     keptItems,
+    chaosLevel: run.chaosLevel,
+    totalActivities: run.activities.length,
   };
 
   store.recordsByDate[date] = [...existing, record];
@@ -108,6 +118,11 @@ export function saveKeptRunForToday(run: DayRun, keptIds: Set<string>): void {
 export function getHistoryByDate(date: string): DayHistoryRecord[] {
   const store = parseStore();
   return store.recordsByDate[date] ?? [];
+}
+
+export function getHistoryDateKeys(): string[] {
+  const store = parseStore();
+  return Object.keys(store.recordsByDate).sort();
 }
 
 export function deleteHistoryRecordByIndex(date: string, index: number): void {
