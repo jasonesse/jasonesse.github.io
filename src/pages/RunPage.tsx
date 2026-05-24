@@ -83,9 +83,10 @@ export function RunPage() {
   }
 
   function handleKeep(id: string) {
+    const wasKept = keptIds.has(id);
     keepActivity(id);
     const activity = run?.activities.find((a) => a.id === id);
-    if (activity) {
+    if (activity && !wasKept) {
       trackEvent("ACTIVITY_KEPT", {
         city: run?.city,
         chaosLevel: run?.chaosLevel,

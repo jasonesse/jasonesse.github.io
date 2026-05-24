@@ -19,10 +19,23 @@ export type ActivityGroupSuitability = {
   kids: boolean;
 };
 
+export type SponsoredInfo = {
+  name?: string;
+  website?: string;
+  promos?: unknown[];
+};
+
+export type SponsorsBlock = {
+  sponsor?: unknown[];
+};
+
 export type Activity = {
   id: string;
   baseText: string;
   short_desc?: string;
+  Sponsored?: SponsoredInfo;
+  sponsored?: SponsoredInfo;
+  Sponsors?: SponsorsBlock;
   category: string;
   timeSlots: TimeSlot[];
   tags: string[];
@@ -39,6 +52,8 @@ export type GeneratedActivity = {
   timeSlot: TimeSlot;
   shortText: string;
   finalText: string;
+  sponsored?: SponsoredInfo;
+  sponsors?: SponsoredInfo[];
   category: string;
   chaosLevel: number;
 };

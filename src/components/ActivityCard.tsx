@@ -26,8 +26,26 @@ export function ActivityCard({
   onExplore,
   onIgnore,
 }: Props) {
-  const [expanded, setExpanded] = useState(false);
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
+  const [sponsorsExpanded, setSponsorsExpanded] = useState(false);
   const hasLongDetails = activity.finalText.trim() !== activity.shortText.trim();
+  const sponsors = activity.sponsors?.length
+    ? activity.sponsors
+    : activity.sponsored
+    ? [activity.sponsored]
+    : [];
+  const hasSponsored = sponsors.length > 0;
+
+  function formatPromo(promo: unknown): string {
+    if (typeof promo === "string") return promo;
+    if (promo && typeof promo === "object") {
+      const entries = Object.entries(promo as Record<string, unknown>)
+        .filter(([, value]) => value != null && `${value}`.trim().length > 0)
+        .map(([key, value]) => `${key}: ${String(value)}`);
+      return entries.join(" | ");
+    }
+    return String(promo);
+  }
 
   return (
     <div className={`activity-card ${isKept ? "activity-card--kept" : ""}`}>
@@ -59,21 +77,77 @@ export function ActivityCard({
 
       <p className="activity-card__text">{activity.shortText}</p>
 
-      {hasLongDetails && (
+      {(hasLongDetails || hasSponsored) && (
         <div className="activity-card__details">
-          <button
-            type="button"
-            className="activity-card__expand"
-            onClick={() => setExpanded((v) => !v)}
-            aria-expanded={expanded}
-          >
-            <span className={`activity-card__expand-arrow ${expanded ? "is-open" : ""}`}>
-              ▾
-            </span>
-            {expanded ? "Hide details" : "Show details"}
-          </button>
+          {hasLongDetails && (
+            <>
+              <button
+                type="button"
+                className="activity-card__expand"
+                onClick={() => setDetailsExpanded((v) => !v)}
+                aria-expanded={detailsExpanded}
+              >
+                <span className={`activity-card__expand-arrow ${detailsExpanded ? "is-open" : ""}`}>
+                  ▾
+                </span>
+                {detailsExpanded ? "Hide more" : "More"}
+              </button>
 
-          {expanded && <p className="activity-card__long-text">{activity.finalText}</p>}
+              {detailsExpanded && (
+                <div className="activity-card__detail-body">
+                  <p className="activity-card__long-text">{activity.finalText}</p>
+                </div>
+              )}
+            </>
+          )}
+
+          {hasSponsored && (
+            <>
+              <button
+                type="button"
+                className="activity-card__expand activity-card__expand--sponsors"
+                onClick={() => setSponsorsExpanded((v) => !v)}
+                aria-expanded={sponsorsExpanded}
+              >
+                <span className={`activity-card__expand-arrow ${sponsorsExpanded ? "is-open" : ""}`}>
+                  ▾
+                </span>
+                {sponsorsExpanded ? "Hide sponsors" : "Sponsors"}
+              </button>
+
+              {sponsorsExpanded && (
+                <div className="activity-card__detail-body">
+                  {sponsors.map((sponsor, sponsorIndex) => {
+                    const hasPromos = Array.isArray(sponsor.promos) && sponsor.promos.length > 0;
+                    return (
+                      <div className="activity-card__sponsored" key={`${activity.id}-sponsor-${sponsorIndex}`}>
+                        <p className="activity-card__sponsored-title">Sponsor {sponsorIndex + 1}</p>
+                        {sponsor.name && <p>{sponsor.name}</p>}
+                        {sponsor.website && (
+                          <a
+                            href={sponsor.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {sponsor.website}
+                          </a>
+                        )}
+                        {hasPromos && (
+                          <ul>
+                            {sponsor.promos!.map((promo, idx) => (
+                              <li key={`${activity.id}-sponsor-${sponsorIndex}-promo-${idx}`}>
+                                {formatPromo(promo)}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
         </div>
       )}
 
@@ -82,11 +156,10 @@ export function ActivityCard({
           type="button"
           className={`btn btn--keep ${isKept ? "btn--active" : ""}`}
           onClick={onKeep}
-          disabled={isKept}
           aria-pressed={isKept}
-          title={isKept ? "Already kept in this run" : "Keep this activity"}
+          title={isKept ? "Return this activity to unkept" : "Keep this activity"}
         >
-          {isKept ? "✓ Kept" : "Keep"}
+          {isKept ? "Return" : "Keep"}
         </button>
         <button
           type="button"

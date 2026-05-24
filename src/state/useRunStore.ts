@@ -170,7 +170,11 @@ export const useRunStore = create<RunStore>((set, get) => ({
   keepActivity: (id) =>
     set((state) => {
       const next = new Set(state.keptIds);
-      next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
       persistSession({
         sessionDate: state.sessionDate,
         run: state.run,

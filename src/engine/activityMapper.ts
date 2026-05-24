@@ -19,6 +19,33 @@ function supportsGroup(activity: Activity, group: GroupDetails): boolean {
   return true;
 }
 
+function toSponsoredInfo(value: unknown) {
+  if (!value || typeof value !== "object") return null;
+  const record = value as Record<string, unknown>;
+  const name = typeof record.name === "string" ? record.name : undefined;
+  const website = typeof record.website === "string" ? record.website : undefined;
+  const directPromos = Array.isArray(record.promos) ? record.promos : [];
+  const keyedPromos = Object.entries(record)
+    .filter(([key, val]) => key.toLowerCase().startsWith("promo") && val != null)
+    .map(([, val]) => val);
+  const promos = [...directPromos, ...keyedPromos];
+  if (!name && !website && promos.length === 0) return null;
+  return { name, website, promos };
+}
+
+function extractSponsors(activity: Activity) {
+  const single = toSponsoredInfo(activity.Sponsored ?? activity.sponsored);
+  const fromListRaw = activity.Sponsors?.sponsor;
+  const fromList = Array.isArray(fromListRaw)
+    ? fromListRaw
+        .map((entry) => toSponsoredInfo(entry))
+        .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+    : [];
+
+  if (single && fromList.length === 0) return [single];
+  return fromList;
+}
+
 /**
  * Re-rolls a single activity for a given time slot from the city deck,
  * excluding the current activity to avoid repeating the same pick.
@@ -70,6 +97,7 @@ export function remapActivity(
 
   const picked = finalPool[Math.floor(Math.random() * finalPool.length)];
   const longText = applyChaos(picked, chaosLevel);
+  const sponsors = extractSponsors(picked);
 
   return {
     id: picked.id,
@@ -78,5 +106,7 @@ export function remapActivity(
     chaosLevel,
     shortText: picked.short_desc?.trim() || longText,
     finalText: longText,
+    sponsored: sponsors[0],
+    sponsors,
   };
 }

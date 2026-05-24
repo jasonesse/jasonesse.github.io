@@ -361,19 +361,37 @@ body {
 .activity-card__slot { font-weight: 700; font-size: 0.95rem; }
 .activity-card__category { font-size: 0.75rem; color: var(--color-muted); background: var(--color-surface); padding: 0.15rem 0.5rem; border-radius: 999px; }
 .activity-card__text { color: var(--color-text); margin-bottom: 0.8rem; font-size: 0.95rem; }
-.activity-card__details { margin-top: -0.25rem; margin-bottom: 0.8rem; }
+.activity-card__details {
+  margin-top: 0.2rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
 .activity-card__expand {
-  border: none;
-  background: transparent;
+  width: 100%;
+  border: 1px solid rgba(244, 162, 97, 0.35);
+  background: rgba(244, 162, 97, 0.08);
   color: var(--color-accent);
   font-weight: 600;
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   cursor: pointer;
-  padding: 0.1rem 0;
+  padding: 0.55rem 0.6rem;
+  border-radius: 10px;
+}
+
+.activity-card__expand + .activity-card__expand {
+  margin-top: 0.55rem;
+}
+
+.activity-card__expand--sponsors {
+  border-color: rgba(82, 183, 136, 0.35);
+  background: rgba(82, 183, 136, 0.09);
+  color: #9decc8;
 }
 
 .activity-card__expand-arrow {
@@ -386,7 +404,7 @@ body {
 }
 
 .activity-card__long-text {
-  margin-top: 0.45rem;
+  margin-top: 0.65rem;
   padding: 0.5rem 0.6rem;
   border-left: 2px solid rgba(244, 162, 97, 0.5);
   background: rgba(255, 255, 255, 0.03);
@@ -394,10 +412,50 @@ body {
   color: var(--color-text);
   font-size: 0.9rem;
 }
+
+.activity-card__detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.activity-card__sponsored {
+  margin-top: 0.15rem;
+  padding: 0.6rem 0.7rem;
+  background: rgba(82, 183, 136, 0.08);
+  border: 1px solid rgba(82, 183, 136, 0.28);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.activity-card__sponsored-title {
+  color: #93e7c0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+}
+
+.activity-card__sponsored a {
+  color: #b7f3d5;
+  word-break: break-all;
+}
+
+.activity-card__sponsored ul {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
 .activity-card__actions {
   display: flex;
   gap: 0.5rem;
   width: 100%;
+  margin-top: 0.35rem;
 }
 
 .activity-card__actions .btn {
