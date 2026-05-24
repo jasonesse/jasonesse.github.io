@@ -40,41 +40,98 @@ body {
 /* ── Top Menu ── */
 .top-menu {
   position: fixed;
-  top: 0.8rem;
-  right: 0.8rem;
-  z-index: 20;
+  top: 0;
+  left: 0;
+  z-index: 60;
 }
 
 .top-menu__trigger {
+  position: fixed;
+  top: 0.8rem;
+  left: 0.8rem;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 999px;
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  background: rgba(26, 26, 26, 0.94);
   color: var(--color-text);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
+  z-index: 62;
   cursor: pointer;
 }
 
+.top-menu__backdrop {
+  position: fixed;
+  inset: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+  z-index: 60;
+}
+
 .top-menu__panel {
-  margin-top: 0.35rem;
-  min-width: 10rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: min(82vw, 20rem);
   background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 0.35rem;
+  border-right: 1px solid var(--color-border);
+  padding: 1rem 0.6rem;
   display: flex;
   flex-direction: column;
+  gap: 0.35rem;
+  transform: translateX(-102%);
+  transition: transform 240ms ease;
+  z-index: 61;
+}
+
+.top-menu.is-open .top-menu__panel {
+  transform: translateX(0);
+}
+
+.top-menu.is-open .top-menu__backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-menu__panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+  padding: 0 0.35rem;
+}
+
+.top-menu__panel-header p {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.top-menu__close {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .top-menu__link {
   color: var(--color-text);
   text-decoration: none;
-  padding: 0.45rem 0.6rem;
+  padding: 0.7rem 0.75rem;
   border-radius: 8px;
+  font-size: 1rem;
 }
 
 .top-menu__link:hover {
