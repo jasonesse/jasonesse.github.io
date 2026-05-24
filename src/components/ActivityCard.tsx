@@ -1,5 +1,5 @@
 import type { GeneratedActivity } from "../types";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   activity: GeneratedActivity;
@@ -28,6 +28,8 @@ export function ActivityCard({
 }: Props) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
   const [sponsorsExpanded, setSponsorsExpanded] = useState(false);
+  const [justKept, setJustKept] = useState(false);
+  const previousKept = useRef(isKept);
   const hasLongDetails = activity.finalText.trim() !== activity.shortText.trim();
   const sponsors = activity.sponsors?.length
     ? activity.sponsors
@@ -47,8 +49,20 @@ export function ActivityCard({
     return String(promo);
   }
 
+  useEffect(() => {
+    let timeout: number | undefined;
+    if (!previousKept.current && isKept) {
+      setJustKept(true);
+      timeout = window.setTimeout(() => setJustKept(false), 720);
+    }
+    previousKept.current = isKept;
+    return () => {
+      if (timeout) window.clearTimeout(timeout);
+    };
+  }, [isKept]);
+
   return (
-    <div className={`activity-card ${isKept ? "activity-card--kept" : ""}`}>
+    <div className={`activity-card ${isKept ? "activity-card--kept" : ""} ${justKept ? "activity-card--kept-burst" : ""}`}>
       <div className="activity-card__header">
         <div className="activity-card__header-main">
           <span className="activity-card__slot">
@@ -154,7 +168,7 @@ export function ActivityCard({
       <div className="activity-card__actions">
         <button
           type="button"
-          className={`btn btn--keep ${isKept ? "btn--active" : ""}`}
+          className={`btn btn--keep ${isKept ? "btn--active" : ""} ${justKept ? "btn--celebrate" : ""}`}
           onClick={onKeep}
           aria-pressed={isKept}
           title={isKept ? "Return this activity to unkept" : "Keep this activity"}

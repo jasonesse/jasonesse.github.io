@@ -39,7 +39,7 @@ export function RunPage() {
       <main className="run-page">
         <header className="run-page__header">
           <h2>No Run Data</h2>
-          <p>Generate a day first, then come back here.</p>
+          <p>Generate your route first, then this live timeline will appear.</p>
         </header>
         <button className="btn btn--primary" onClick={() => nav("/")}>
           Go Home
@@ -119,7 +119,7 @@ export function RunPage() {
       label: activity.finalText,
       category: activity.category,
     });
-    setToast("Ignored");
+    setToast("Activity Hidden");
 
     try {
       const deck = await loadCity(run.city);

@@ -13,7 +13,7 @@ export function ResultPage() {
       <main className="result-page">
         <header className="result-page__header">
           <h2>No Result Data</h2>
-          <p>Complete a run to view results here.</p>
+          <p>Complete a run first and your recap will appear here.</p>
         </header>
         <button className="btn btn--primary" onClick={() => nav("/")}>
           Go Home
@@ -41,10 +41,10 @@ export function ResultPage() {
   }
 
   return (
-    <main className="result-page">
+    <main className="result-page result-page--celebrate">
       <header className="result-page__header">
-        <h2>Run Complete!</h2>
-        <p>Here's how your day looked in {run.city}.</p>
+        <h2>Run Complete</h2>
+        <p>Your {run.city} plan is locked. Here is your final lineup.</p>
       </header>
 
       <ScorePanel
@@ -68,10 +68,10 @@ export function ResultPage() {
 
       <div className="result-page__actions">
         <button className="btn btn--primary btn--large" onClick={handlePlayAgain}>
-          Play Again
+          Spin Another Day
         </button>
         <button className="btn btn--secondary btn--large" onClick={handleStartOver}>
-          Start Over (Clear Cache)
+          Reset History And Start Fresh
         </button>
       </div>
     </main>

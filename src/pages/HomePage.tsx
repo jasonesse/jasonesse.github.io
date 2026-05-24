@@ -27,6 +27,7 @@ export function HomePage() {
     kids: 0,
   });
   const [loading, setLoading] = useState(false);
+  const [setupStep, setSetupStep] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const setRun = useRunStore((s) => s.setRun);
   const nav = useNavigate();
@@ -70,7 +71,7 @@ export function HomePage() {
     setError(null);
     if (groupDetails.adults + groupDetails.teenagers + groupDetails.kids === 0) {
       setLoading(false);
-      setError("Add at least one person to your group.");
+      setError("Add at least one traveler to unlock your route.");
       return;
     }
     try {
@@ -79,7 +80,7 @@ export function HomePage() {
       const recentIds = getRecentActivityIdsByCity(city, 30);
       const day = generateDay(deck, chaos, groupDetails, ignoredIds, recentIds);
       if (day.activities.length === 0) {
-        setError("No matching activities for this group setup. Try different counts.");
+        setError("No matches yet. Try changing chaos or your group mix.");
         setLoading(false);
         return;
       }
@@ -96,8 +97,8 @@ export function HomePage() {
   return (
     <main className="home-page">
       <header className="home-page__header">
-        <h1>Plan Your Day</h1>
-        <p>Generate a perfect day in your chosen city.</p>
+        <h1>Build Your City Run</h1>
+        <p>Set your city, tune the vibe, and launch a day that feels tailored.</p>
       </header>
 
       <CityImage
@@ -107,11 +108,55 @@ export function HomePage() {
       />
 
       <section className="home-page__controls">
-        <CitySelector value={city} cities={cities} onChange={setPreferredCity} />
-        <ChaosSlider value={chaos} onChange={setChaos} />
-        <div className="group-details">
-          <p className="group-details__title">Group Details</p>
-          <div className="group-details__grid">
+        <section className="home-step is-visible">
+          <p className="home-step__title">Step 1: Pick a city</p>
+          <p className="home-step__hint">Choose where today starts.</p>
+          <CitySelector
+            value={city}
+            cities={cities}
+            onChange={(nextCity) => {
+              setPreferredCity(nextCity);
+              setSetupStep((s) => Math.max(s, 2));
+            }}
+          />
+          {setupStep < 2 && (
+            <div className="home-step__actions">
+              <button
+                type="button"
+                className="btn btn--secondary"
+                onClick={() => setSetupStep(2)}
+              >
+                Next: Set The Vibe
+              </button>
+            </div>
+          )}
+        </section>
+
+        {setupStep >= 2 && (
+          <section className="home-step is-visible">
+            <p className="home-step__title">Step 2: Tune chaos</p>
+            <p className="home-step__hint">Low is smooth. High is unpredictable.</p>
+            <ChaosSlider value={chaos} onChange={setChaos} />
+            {setupStep < 3 && (
+              <div className="home-step__actions">
+                <button
+                  type="button"
+                  className="btn btn--secondary"
+                  onClick={() => setSetupStep(3)}
+                >
+                  Next: Set Your Group
+                </button>
+              </div>
+            )}
+          </section>
+        )}
+
+        {setupStep >= 3 && (
+          <div className="group-details home-step is-visible">
+            <p className="home-step__title">Step 3: Group setup</p>
+            <p className="home-step__hint">We filter activities for your crew.</p>
+            <p className="group-details__title">Group Details</p>
+            <div className="group-details__grid">
             <label>
               Adults
               <div className="group-spinner">
@@ -206,18 +251,21 @@ export function HomePage() {
               </div>
             </label>
           </div>
-        </div>
+          </div>
+        )}
       </section>
 
       {error && <p className="error-message">{error}</p>}
 
-      <button
-        className="btn btn--primary btn--large"
-        onClick={startRun}
-        disabled={loading}
-      >
-        {loading ? "Generating…" : "Generate Day"}
-      </button>
+      {setupStep >= 3 && (
+        <button
+          className="btn btn--primary btn--large"
+          onClick={startRun}
+          disabled={loading}
+        >
+          {loading ? "Crafting Your Route..." : "Generate My Day"}
+        </button>
+      )}
     </main>
   );
 }
