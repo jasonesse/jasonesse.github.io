@@ -15,6 +15,13 @@ function getTodayKey(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function normalizeActivity(activity: GeneratedActivity): GeneratedActivity {
+  return {
+    ...activity,
+    shortText: (activity as { shortText?: string }).shortText ?? activity.finalText,
+  };
+}
+
 function loadPersistedSession(): PersistedRunSession | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -31,6 +38,9 @@ function loadPersistedSession(): PersistedRunSession | null {
     const run = parsed.run
       ? {
           ...parsed.run,
+          activities: Array.isArray(parsed.run.activities)
+            ? parsed.run.activities.map((a) => normalizeActivity(a as GeneratedActivity))
+            : [],
           groupDetails: parsed.run.groupDetails ?? {
             adults: 1,
             teenagers: 0,
