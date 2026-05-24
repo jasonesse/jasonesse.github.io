@@ -1,0 +1,191 @@
+{
+    "city": "Barcelona",
+    "activityDeck": [
+        {
+            "id": "bcn-001",
+            "baseText": "Pan con tomate breakfast",
+            "category": "food",
+            "timeSlots": [
+                "morning"
+            ],
+            "tags": [
+                "breakfast",
+                "local",
+                "classic"
+            ],
+            "chaosVariants": {
+                "low": "Start the day with pan con tomate and café con leche at a local bar.",
+                "medium": "Find the place with the longest queue of locals and order whatever everyone else has.",
+                "high": "Make your own pan con tomate at a market stall using ingredients you argue-negotiated for."
+            }
+        },
+        {
+            "id": "bcn-002",
+            "baseText": "Sagrada Família exterior walk",
+            "category": "culture",
+            "timeSlots": [
+                "morning",
+                "midday"
+            ],
+            "tags": [
+                "architecture",
+                "Gaudí",
+                "sightseeing"
+            ],
+            "chaosVariants": {
+                "low": "Walk around the Sagrada Família exterior and spend time with both the Nativity and Passion facades.",
+                "medium": "Sketch or photograph only the details that most people walk past.",
+                "high": "Ask three strangers to explain what they think Gaudí was trying to say. Compile their answers."
+            }
+        },
+        {
+            "id": "bcn-003",
+            "baseText": "Boqueria market exploration",
+            "category": "food",
+            "timeSlots": [
+                "midday",
+                "morning"
+            ],
+            "tags": [
+                "market",
+                "food",
+                "colourful"
+            ],
+            "chaosVariants": {
+                "low": "Wander La Boqueria and buy a few things that look beautiful and unusual.",
+                "medium": "Build a lunch from three different stalls using a 10€ budget.",
+                "high": "Eat only things you've never tasted before for your entire Boqueria visit."
+            }
+        },
+        {
+            "id": "bcn-004",
+            "baseText": "Barceloneta beach",
+            "category": "outdoors",
+            "timeSlots": [
+                "afternoon",
+                "midday"
+            ],
+            "tags": [
+                "beach",
+                "sea",
+                "relaxation"
+            ],
+            "chaosVariants": {
+                "low": "Spend the afternoon at Barceloneta beach — swim, people-watch, do nothing.",
+                "medium": "Join whichever beach volleyball game looks the most competitive.",
+                "high": "Set a timer for 90 minutes. Do not use your phone once. Just exist at the beach."
+            }
+        },
+        {
+            "id": "bcn-005",
+            "baseText": "Lunch tapas crawl in El Born",
+            "category": "food",
+            "timeSlots": [
+                "lunch"
+            ],
+            "tags": [
+                "tapas",
+                "food",
+                "neighbourhood"
+            ],
+            "chaosVariants": {
+                "low": "Do a casual tapas crawl through El Born — two or three bars, patatas bravas, croquetas.",
+                "medium": "Order one item at each bar and refuse to look at menus — just point at what looks good.",
+                "high": "Eat standing at the bar every time. No sitting allowed for the entire crawl."
+            }
+        },
+        {
+            "id": "bcn-006",
+            "baseText": "Park Güell visit",
+            "category": "culture",
+            "timeSlots": [
+                "morning",
+                "afternoon"
+            ],
+            "tags": [
+                "Gaudí",
+                "park",
+                "architecture"
+            ],
+            "chaosVariants": {
+                "low": "Book a timed entry to Park Güell's monumental zone and explore the mosaic terraces.",
+                "medium": "Skip the main area and explore the free wooded paths and lesser-visited corners.",
+                "high": "Find the least photographed spot in the entire park and spend 20 minutes there alone."
+            }
+        },
+        {
+            "id": "bcn-007",
+            "baseText": "Vermouth hour in Gràcia",
+            "category": "food",
+            "timeSlots": [
+                "midday",
+                "lunch"
+            ],
+            "tags": [
+                "vermouth",
+                "drinks",
+                "neighbourhood"
+            ],
+            "chaosVariants": {
+                "low": "Join the Sunday vermouth tradition in the squares of Gràcia with olives and chips.",
+                "medium": "Try three different vermouths at three different bars without repeating a snack.",
+                "high": "Ask every bar you enter which vermouth is their proudest pour and drink only that."
+            }
+        },
+        {
+            "id": "bcn-008",
+            "baseText": "Gothic Quarter at dusk",
+            "category": "exploration",
+            "timeSlots": [
+                "evening",
+                "afternoon"
+            ],
+            "tags": [
+                "walking",
+                "history",
+                "atmosphere"
+            ],
+            "chaosVariants": {
+                "low": "Walk the narrow streets of the Gothic Quarter as the crowds thin and the lights come on.",
+                "medium": "Navigate the Gothic Quarter using only right turns for 30 minutes. No left turns allowed.",
+                "high": "Find three hidden Roman ruins on foot using no map — only logic and architectural intuition."
+            }
+        },
+        {
+            "id": "bcn-009",
+            "baseText": "Seafood dinner at La Barceloneta",
+            "category": "food",
+            "timeSlots": [
+                "evening"
+            ],
+            "tags": [
+                "seafood",
+                "dinner",
+                "seaside"
+            ],
+            "chaosVariants": {
+                "low": "Eat a leisurely seafood dinner near the marina — fideuà or fresh grilled fish.",
+                "medium": "Let the server order for you based on what came in fresh that day.",
+                "high": "Order the entire table sharing menu for yourself. No leftovers allowed."
+            }
+        },
+        {
+            "id": "bcn-010",
+            "baseText": "Flamenco show in El Raval",
+            "category": "culture",
+            "timeSlots": [
+                "evening"
+            ],
+            "tags": [
+                "music",
+                "dance",
+                "culture"
+            ],
+            "chaosVariants": {
+                "low": "Watch a flamenco performance at an intimate tablao in El Raval.",
+                "medium": "Find a free flamenco performance in a bar or cultural centre rather than a tourist venue.",
+                "high": "Stay for the entire night at a bar where flamenco breaks out spontaneously. Do not leave first."
+            }
+        }
+    ]
+}

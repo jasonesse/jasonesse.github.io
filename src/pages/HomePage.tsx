@@ -1,0 +1,120 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CitySelector } from "../components/CitySelector";
+import { ChaosSlider } from "../components/ChaosSlider";
+import { CityImage } from "../components/CityImage";
+import { loadCity } from "../engine/cityLoader";
+import { generateDay } from "../engine/generateDay";
+import { useRunStore } from "../state/useRunStore";
+import { trackEvent } from "../analytics/eventTracker";
+import type { GroupDetails } from "../types";
+import { getIgnoredActivityIdsByCity } from "../history/ignoredActivitiesCookie";
+
+export function HomePage() {
+  const [city, setCity] = useState("montreal");
+  const [chaos, setChaos] = useState(50);
+  const [groupDetails, setGroupDetails] = useState<GroupDetails>({
+    adults: 2,
+    teenagers: 0,
+    kids: 0,
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const setRun = useRunStore((s) => s.setRun);
+  const nav = useNavigate();
+
+  function setGroupCount(key: keyof GroupDetails, value: string) {
+    const parsed = Number(value);
+    const safe = Number.isFinite(parsed) ? Math.max(0, Math.floor(parsed)) : 0;
+    setGroupDetails((prev) => ({ ...prev, [key]: safe }));
+  }
+
+  async function startRun() {
+    setLoading(true);
+    setError(null);
+    if (groupDetails.adults + groupDetails.teenagers + groupDetails.kids === 0) {
+      setLoading(false);
+      setError("Add at least one person to your group.");
+      return;
+    }
+    try {
+      const deck = await loadCity(city);
+      const ignoredIds = getIgnoredActivityIdsByCity(city);
+      const day = generateDay(deck, chaos, groupDetails, ignoredIds);
+      if (day.activities.length === 0) {
+        setError("No matching activities for this group setup. Try different counts.");
+        setLoading(false);
+        return;
+      }
+      setRun(day);
+      trackEvent("RUN_GENERATED", { city, chaosLevel: chaos });
+      nav("/run");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Failed to load city data.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main className="home-page">
+      <header className="home-page__header">
+        <h1>City Run Generator</h1>
+        <p>Generate a perfect day in your chosen city.</p>
+      </header>
+
+      <CityImage
+        city={city}
+        className="home-page__city-image"
+        alt={`${city} city preview`}
+      />
+
+      <section className="home-page__controls">
+        <CitySelector value={city} onChange={setCity} />
+        <ChaosSlider value={chaos} onChange={setChaos} />
+        <div className="group-details">
+          <p className="group-details__title">Group Details</p>
+          <div className="group-details__grid">
+            <label>
+              Adults
+              <input
+                type="number"
+                min={0}
+                value={groupDetails.adults}
+                onChange={(e) => setGroupCount("adults", e.target.value)}
+              />
+            </label>
+            <label>
+              Teenagers
+              <input
+                type="number"
+                min={0}
+                value={groupDetails.teenagers}
+                onChange={(e) => setGroupCount("teenagers", e.target.value)}
+              />
+            </label>
+            <label>
+              Kids
+              <input
+                type="number"
+                min={0}
+                value={groupDetails.kids}
+                onChange={(e) => setGroupCount("kids", e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      {error && <p className="error-message">{error}</p>}
+
+      <button
+        className="btn btn--primary btn--large"
+        onClick={startRun}
+        disabled={loading}
+      >
+        {loading ? "Generating…" : "Generate Day"}
+      </button>
+    </main>
+  );
+}
