@@ -22,6 +22,7 @@ export function RunPage() {
     rerollActivity,
     removeActivityBySlot,
     keepActivity,
+    markRunCompleted,
     clearRun,
   } = useRunStore();
   const nav = useNavigate();
@@ -35,9 +36,8 @@ export function RunPage() {
   }, [toast]);
 
   useEffect(() => {
-    if (!run) return;
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, [run]);
+  }, []);
 
   if (!run) {
     return (
@@ -159,6 +159,7 @@ export function RunPage() {
     if (run) {
       saveKeptRunForToday(run, keptIds);
     }
+    markRunCompleted();
     trackEvent("RUN_COMPLETED", {
       city: run?.city,
       chaosLevel: run?.chaosLevel,

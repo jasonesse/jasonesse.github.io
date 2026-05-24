@@ -9,6 +9,7 @@ type PersistedRunSession = {
   run: DayRun | null;
   keptIds: string[];
   recentActivityIds: string[];
+  isRunCompleted: boolean;
 };
 
 function getTodayKey(): string {
@@ -56,6 +57,7 @@ function loadPersistedSession(): PersistedRunSession | null {
       recentActivityIds: Array.isArray(parsed.recentActivityIds)
         ? parsed.recentActivityIds
         : [],
+      isRunCompleted: Boolean((parsed as { isRunCompleted?: unknown }).isRunCompleted),
     };
   } catch {
     return null;
@@ -67,12 +69,14 @@ function persistSession(state: {
   run: DayRun | null;
   keptIds: Set<string>;
   recentActivityIds: string[];
+  isRunCompleted: boolean;
 }): void {
   const payload: PersistedRunSession = {
     sessionDate: state.sessionDate,
     run: state.run,
     keptIds: [...state.keptIds],
     recentActivityIds: state.recentActivityIds,
+    isRunCompleted: state.isRunCompleted,
   };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -83,11 +87,13 @@ type RunStore = {
   run: DayRun | null;
   keptIds: Set<string>;
   recentActivityIds: string[];
+  isRunCompleted: boolean;
   ensureCurrentDay: () => void;
   setRun: (run: DayRun) => void;
   rerollActivity: (updated: GeneratedActivity) => void;
   removeActivityBySlot: (slot: TimeSlot) => void;
   keepActivity: (id: string) => void;
+  markRunCompleted: () => void;
   clearRun: () => void;
 };
 
@@ -98,6 +104,7 @@ export const useRunStore = create<RunStore>((set, get) => ({
   run: initial?.run ?? null,
   keptIds: new Set(initial?.keptIds ?? []),
   recentActivityIds: initial?.recentActivityIds ?? [],
+  isRunCompleted: initial?.isRunCompleted ?? false,
 
   ensureCurrentDay: () => {
     const today = getTodayKey();
@@ -109,6 +116,7 @@ export const useRunStore = create<RunStore>((set, get) => ({
       run: null,
       keptIds: new Set(),
       recentActivityIds: [],
+      isRunCompleted: false,
     });
   },
 
@@ -120,6 +128,7 @@ export const useRunStore = create<RunStore>((set, get) => ({
       run,
       keptIds: new Set<string>(),
       recentActivityIds: run.activities.map((a) => a.id).slice(-10),
+      isRunCompleted: false,
     };
     set(next);
     persistSession(next);
@@ -142,10 +151,12 @@ export const useRunStore = create<RunStore>((set, get) => ({
         run: nextRun,
         keptIds: state.keptIds,
         recentActivityIds,
+        isRunCompleted: false,
       });
       return {
         run: nextRun,
         recentActivityIds,
+        isRunCompleted: false,
       };
     }),
 
@@ -161,9 +172,11 @@ export const useRunStore = create<RunStore>((set, get) => ({
         run: nextRun,
         keptIds: state.keptIds,
         recentActivityIds: state.recentActivityIds,
+        isRunCompleted: false,
       });
       return {
         run: nextRun,
+        isRunCompleted: false,
       };
     }),
 
@@ -180,12 +193,25 @@ export const useRunStore = create<RunStore>((set, get) => ({
         run: state.run,
         keptIds: next,
         recentActivityIds: state.recentActivityIds,
+        isRunCompleted: false,
       });
-      return { keptIds: next };
+      return { keptIds: next, isRunCompleted: false };
+    }),
+
+  markRunCompleted: () =>
+    set((state) => {
+      persistSession({
+        sessionDate: state.sessionDate,
+        run: state.run,
+        keptIds: state.keptIds,
+        recentActivityIds: state.recentActivityIds,
+        isRunCompleted: true,
+      });
+      return { isRunCompleted: true };
     }),
 
   clearRun: () => {
     localStorage.removeItem(STORAGE_KEY);
-    set({ run: null, keptIds: new Set(), recentActivityIds: [] });
+    set({ run: null, keptIds: new Set(), recentActivityIds: [], isRunCompleted: false });
   },
 }));

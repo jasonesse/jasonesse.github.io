@@ -86,7 +86,6 @@ p {
   padding: 0.5rem 0.6rem;
   margin-bottom: 0.8rem;
   background: rgba(17, 24, 34, 0.84);
-  border: 1px solid var(--color-border);
   border-radius: 999px;
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-soft);
@@ -96,7 +95,7 @@ p {
 .top-menu__trigger {
   width: 2.2rem;
   height: 2.2rem;
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 999px;
   background: linear-gradient(180deg, #1f2a38, #171f2b);
   color: var(--color-text);

@@ -5,10 +5,10 @@ import { getEvents } from "../analytics/eventTracker";
 import { clearRecentActivitiesForCity } from "../history/recentActivityHistory";
 
 export function ResultPage() {
-  const { run, keptIds, clearRun } = useRunStore();
+  const { run, keptIds, isRunCompleted, clearRun } = useRunStore();
   const nav = useNavigate();
 
-  if (!run) {
+  if (!run || !isRunCompleted) {
     return (
       <main className="result-page">
         <header className="result-page__header">

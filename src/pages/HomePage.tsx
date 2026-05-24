@@ -15,16 +15,14 @@ import { getFallbackCityByKey, loadCityCatalog } from "../cities/cityCatalog";
 
 export function HomePage() {
   const city = useUserStore((s) => s.preferredCity);
+  const chaos = useUserStore((s) => s.defaultChaos);
+  const groupDetails = useUserStore((s) => s.defaultGroupDetails);
   const setPreferredCity = useUserStore((s) => s.setPreferredCity);
+  const setDefaultChaos = useUserStore((s) => s.setDefaultChaos);
+  const setDefaultGroupDetails = useUserStore((s) => s.setDefaultGroupDetails);
   const [cities, setCities] = useState(() => {
     const fallback = getFallbackCityByKey(city);
     return fallback ? [{ key: fallback.key, label: fallback.label }] : [];
-  });
-  const [chaos, setChaos] = useState(20);
-  const [groupDetails, setGroupDetails] = useState<GroupDetails>({
-    adults: 2,
-    teenagers: 0,
-    kids: 0,
   });
   const [loading, setLoading] = useState(false);
   const [setupStep, setSetupStep] = useState(1);
@@ -69,14 +67,12 @@ export function HomePage() {
   function setGroupCount(key: keyof GroupDetails, value: string) {
     const parsed = Number(value);
     const safe = Number.isFinite(parsed) ? Math.max(0, Math.floor(parsed)) : 0;
-    setGroupDetails((prev) => ({ ...prev, [key]: safe }));
+    setDefaultGroupDetails({ ...groupDetails, [key]: safe });
   }
 
   function adjustGroupCount(key: keyof GroupDetails, delta: number) {
-    setGroupDetails((prev) => {
-      const next = Math.max(0, (prev[key] ?? 0) + delta);
-      return { ...prev, [key]: next };
-    });
+    const next = Math.max(0, (groupDetails[key] ?? 0) + delta);
+    setDefaultGroupDetails({ ...groupDetails, [key]: next });
   }
 
   async function startRun() {
@@ -149,7 +145,7 @@ export function HomePage() {
           <section ref={step2Ref} className="home-step is-visible">
             <p className="home-step__title">Step 2: Tune chaos</p>
             <p className="home-step__hint">Low is smooth. High is unpredictable.</p>
-            <ChaosSlider value={chaos} onChange={setChaos} />
+            <ChaosSlider value={chaos} onChange={setDefaultChaos} />
             {setupStep < 3 && (
               <div className="home-step__actions">
                 <button
