@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { DayRun, GeneratedActivity, TimeSlot } from "../types";
+import { rememberActivitiesForCity } from "../history/recentActivityHistory";
 
 const STORAGE_KEY = "crg_current_session_v1";
 
@@ -102,6 +103,8 @@ export const useRunStore = create<RunStore>((set, get) => ({
   },
 
   setRun: (run) => {
+    rememberActivitiesForCity(run.city, run.activities.map((a) => a.id));
+
     const next = {
       sessionDate: getTodayKey(),
       run,
@@ -115,6 +118,8 @@ export const useRunStore = create<RunStore>((set, get) => ({
   rerollActivity: (updated) =>
     set((state) => {
       if (!state.run) return state;
+      rememberActivitiesForCity(state.run.city, [updated.id]);
+
       const nextRun = {
         ...state.run,
         activities: state.run.activities.map((a) =>

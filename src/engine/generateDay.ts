@@ -38,7 +38,8 @@ export function generateDay(
   cityDeck: CityDeck,
   chaosLevel: number,
   groupDetails: GroupDetails,
-  ignoredIds: Set<string> = new Set()
+  ignoredIds: Set<string> = new Set(),
+  recentIds: Set<string> = new Set()
 ): DayRun {
   const result: GeneratedActivity[] = [];
   const usedIds = new Set<string>();
@@ -52,8 +53,11 @@ export function generateDay(
       !ignoredIds.has(a.id)
     );
 
+    const freshCandidates = candidates.filter((a) => !recentIds.has(a.id));
+    const pool = freshCandidates.length > 0 ? freshCandidates : candidates;
+
     // Fisher-Yates shuffle for unbiased random selection
-    const shuffled = [...candidates];
+    const shuffled = [...pool];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];

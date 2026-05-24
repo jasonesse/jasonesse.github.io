@@ -9,6 +9,7 @@ import { useRunStore } from "../state/useRunStore";
 import { trackEvent } from "../analytics/eventTracker";
 import type { GroupDetails } from "../types";
 import { getIgnoredActivityIdsByCity } from "../history/ignoredActivitiesCookie";
+import { getRecentActivityIdsByCity } from "../history/recentActivityHistory";
 
 export function HomePage() {
   const [city, setCity] = useState("montreal");
@@ -47,7 +48,8 @@ export function HomePage() {
     try {
       const deck = await loadCity(city);
       const ignoredIds = getIgnoredActivityIdsByCity(city);
-      const day = generateDay(deck, chaos, groupDetails, ignoredIds);
+      const recentIds = getRecentActivityIdsByCity(city, 30);
+      const day = generateDay(deck, chaos, groupDetails, ignoredIds, recentIds);
       if (day.activities.length === 0) {
         setError("No matching activities for this group setup. Try different counts.");
         setLoading(false);
