@@ -22,6 +22,7 @@ export type ActivityGroupSuitability = {
 export type Activity = {
   id: string;
   baseText: string;
+  short_desc?: string;
   category: string;
   timeSlots: TimeSlot[];
   tags: string[];
@@ -36,6 +37,7 @@ export type Activity = {
 export type GeneratedActivity = {
   id: string;
   timeSlot: TimeSlot;
+  shortText: string;
   finalText: string;
   category: string;
   chaosLevel: number;

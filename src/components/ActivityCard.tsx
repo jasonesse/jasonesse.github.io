@@ -1,4 +1,5 @@
 import type { GeneratedActivity } from "../types";
+import { useState } from "react";
 
 type Props = {
   activity: GeneratedActivity;
@@ -25,6 +26,9 @@ export function ActivityCard({
   onExplore,
   onIgnore,
 }: Props) {
+  const [expanded, setExpanded] = useState(false);
+  const hasLongDetails = activity.finalText.trim() !== activity.shortText.trim();
+
   return (
     <div className={`activity-card ${isKept ? "activity-card--kept" : ""}`}>
       <div className="activity-card__header">
@@ -53,7 +57,25 @@ export function ActivityCard({
         </button>
       </div>
 
-      <p className="activity-card__text">{activity.finalText}</p>
+      <p className="activity-card__text">{activity.shortText}</p>
+
+      {hasLongDetails && (
+        <div className="activity-card__details">
+          <button
+            type="button"
+            className="activity-card__expand"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+          >
+            <span className={`activity-card__expand-arrow ${expanded ? "is-open" : ""}`}>
+              ▾
+            </span>
+            {expanded ? "Hide details" : "Show details"}
+          </button>
+
+          {expanded && <p className="activity-card__long-text">{activity.finalText}</p>}
+        </div>
+      )}
 
       <div className="activity-card__actions">
         <button

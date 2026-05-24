@@ -69,12 +69,14 @@ export function remapActivity(
       : basePool;
 
   const picked = finalPool[Math.floor(Math.random() * finalPool.length)];
+  const longText = applyChaos(picked, chaosLevel);
 
   return {
     id: picked.id,
     timeSlot: slot,
     category: picked.category,
     chaosLevel,
-    finalText: applyChaos(picked, chaosLevel),
+    shortText: picked.short_desc?.trim() || longText,
+    finalText: longText,
   };
 }

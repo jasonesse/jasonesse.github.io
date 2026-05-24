@@ -67,12 +67,14 @@ export function generateDay(
     if (!picked) continue;
 
     usedIds.add(picked.id);
+    const longText = applyChaos(picked, chaosLevel);
     result.push({
       id: picked.id,
       timeSlot: slot,
       category: picked.category,
       chaosLevel,
-      finalText: applyChaos(picked, chaosLevel),
+      shortText: picked.short_desc?.trim() || longText,
+      finalText: longText,
     });
   }
 
