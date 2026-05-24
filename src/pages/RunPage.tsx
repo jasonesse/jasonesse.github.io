@@ -26,12 +26,27 @@ export function RunPage() {
   } = useRunStore();
   const nav = useNavigate();
   const [_rerollCount, setRerollCount] = useState(0);
+  const [toast, setToast] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!run) nav("/");
-  }, [run, nav]);
+    if (!toast) return;
+    const timeout = window.setTimeout(() => setToast(null), 1800);
+    return () => window.clearTimeout(timeout);
+  }, [toast]);
 
-  if (!run) return null;
+  if (!run) {
+    return (
+      <main className="run-page">
+        <header className="run-page__header">
+          <h2>No Run Data</h2>
+          <p>Generate a day first, then come back here.</p>
+        </header>
+        <button className="btn btn--primary" onClick={() => nav("/")}>
+          Go Home
+        </button>
+      </main>
+    );
+  }
 
   async function handleReroll(activity: GeneratedActivity) {
     if (!run) return;
@@ -61,10 +76,6 @@ export function RunPage() {
           activityId: activity.id,
           timeSlot: activity.timeSlot,
         });
-      } else {
-        alert(
-          "No compatible reroll option is available for this time slot with the current group and ignored activity filters."
-        );
       }
     } catch {
       // silently ignore network errors during reroll
@@ -107,6 +118,7 @@ export function RunPage() {
       label: activity.finalText,
       category: activity.category,
     });
+    setToast("Ignored");
 
     try {
       const deck = await loadCity(run.city);
@@ -167,6 +179,12 @@ export function RunPage() {
         onRegenerate={handleRegenerate}
         onComplete={handleComplete}
       />
+
+      {toast && (
+        <div className="app-toast" role="status" aria-live="polite">
+          {toast}
+        </div>
+      )}
     </main>
   );
 }

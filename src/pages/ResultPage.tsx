@@ -9,8 +9,17 @@ export function ResultPage() {
   const nav = useNavigate();
 
   if (!run) {
-    nav("/");
-    return null;
+    return (
+      <main className="result-page">
+        <header className="result-page__header">
+          <h2>No Result Data</h2>
+          <p>Complete a run to view results here.</p>
+        </header>
+        <button className="btn btn--primary" onClick={() => nav("/")}>
+          Go Home
+        </button>
+      </main>
+    );
   }
 
   const events = getEvents();

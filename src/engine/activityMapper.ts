@@ -33,17 +33,42 @@ export function remapActivity(
   useWholeDeck: boolean = false
 ): GeneratedActivity | null {
   const excluded = new Set(excludeIds);
-  const candidates = deck.filter(
-    (a) =>
-      (useWholeDeck || a.timeSlots.includes(slot)) &&
-      !excluded.has(a.id) &&
-      supportsGroup(a, groupDetails) &&
-      !ignoredIds.has(a.id)
+  const basePool = deck.filter(
+    (a) => useWholeDeck || a.timeSlots.includes(slot)
   );
 
-  if (candidates.length === 0) return null;
+  if (basePool.length === 0) return null;
 
-  const picked = candidates[Math.floor(Math.random() * candidates.length)];
+  const candidates =
+    basePool.filter(
+      (a) =>
+        !excluded.has(a.id) &&
+        supportsGroup(a, groupDetails) &&
+        !ignoredIds.has(a.id)
+    ) || [];
+
+  const fallbackNoExclusions = basePool.filter(
+    (a) => supportsGroup(a, groupDetails) && !ignoredIds.has(a.id)
+  );
+
+  const fallbackIgnoreIgnored = basePool.filter((a) =>
+    supportsGroup(a, groupDetails)
+  );
+
+  const fallbackAny = basePool.filter((a) => !ignoredIds.has(a.id));
+
+  const finalPool =
+    candidates.length > 0
+      ? candidates
+      : fallbackNoExclusions.length > 0
+      ? fallbackNoExclusions
+      : fallbackIgnoreIgnored.length > 0
+      ? fallbackIgnoreIgnored
+      : fallbackAny.length > 0
+      ? fallbackAny
+      : basePool;
+
+  const picked = finalPool[Math.floor(Math.random() * finalPool.length)];
 
   return {
     id: picked.id,
