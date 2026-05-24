@@ -17,6 +17,11 @@ const TIME_SLOTS: TimeSlot[] = [
 ];
 
 function supportsGroup(activity: Activity, group: GroupDetails): boolean {
+  // Adults-only groups are treated as least restrictive.
+  if (group.adults >= 2 && group.teenagers === 0 && group.kids === 0) {
+    return true;
+  }
+
   const rules = activity.groupSuitability ?? {
     adults: true,
     teenagers: true,

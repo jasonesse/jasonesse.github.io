@@ -80,6 +80,8 @@ export function HomePage() {
               <input
                 type="number"
                 min={0}
+                step={1}
+                inputMode="numeric"
                 value={groupDetails.adults}
                 onChange={(e) => setGroupCount("adults", e.target.value)}
               />
@@ -89,6 +91,8 @@ export function HomePage() {
               <input
                 type="number"
                 min={0}
+                step={1}
+                inputMode="numeric"
                 value={groupDetails.teenagers}
                 onChange={(e) => setGroupCount("teenagers", e.target.value)}
               />
@@ -98,6 +102,8 @@ export function HomePage() {
               <input
                 type="number"
                 min={0}
+                step={1}
+                inputMode="numeric"
                 value={groupDetails.kids}
                 onChange={(e) => setGroupCount("kids", e.target.value)}
               />

@@ -18,6 +18,7 @@ export function RunPage() {
   const {
     run,
     keptIds,
+    recentActivityIds,
     rerollActivity,
     removeActivityBySlot,
     keepActivity,
@@ -39,14 +40,17 @@ export function RunPage() {
       const ignoredIds = getIgnoredActivityIdsByCity(run.city);
       // Exclude every activity currently in the run so the reroll never
       // produces a duplicate ID (which would break the "keep" highlight).
-      const usedIds = run.activities.map((a) => a.id);
+      const usedIds = Array.from(
+        new Set([...run.activities.map((a) => a.id), ...recentActivityIds])
+      );
       const updated = remapActivity(
         deck.activityDeck,
         activity.timeSlot,
         usedIds,
         run.chaosLevel,
         run.groupDetails,
-        ignoredIds
+        ignoredIds,
+        true
       );
       if (updated) {
         rerollActivity(updated);
@@ -109,15 +113,17 @@ export function RunPage() {
       const usedIds = run.activities
         .map((a) => a.id)
         .filter((id) => id !== activity.id);
+      const excludedIds = Array.from(new Set([...usedIds, ...recentActivityIds]));
       const ignoredIds = getIgnoredActivityIdsByCity(run.city);
 
       const updated = remapActivity(
         deck.activityDeck,
         activity.timeSlot,
-        usedIds,
+        excludedIds,
         run.chaosLevel,
         run.groupDetails,
-        ignoredIds
+        ignoredIds,
+        true
       );
 
       if (updated) {

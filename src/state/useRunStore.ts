@@ -7,6 +7,7 @@ type PersistedRunSession = {
   sessionDate: string;
   run: DayRun | null;
   keptIds: string[];
+  recentActivityIds: string[];
 };
 
 function getTodayKey(): string {
@@ -41,6 +42,9 @@ function loadPersistedSession(): PersistedRunSession | null {
       sessionDate: parsed.sessionDate,
       run,
       keptIds: Array.isArray(parsed.keptIds) ? parsed.keptIds : [],
+      recentActivityIds: Array.isArray(parsed.recentActivityIds)
+        ? parsed.recentActivityIds
+        : [],
     };
   } catch {
     return null;
@@ -51,11 +55,13 @@ function persistSession(state: {
   sessionDate: string;
   run: DayRun | null;
   keptIds: Set<string>;
+  recentActivityIds: string[];
 }): void {
   const payload: PersistedRunSession = {
     sessionDate: state.sessionDate,
     run: state.run,
     keptIds: [...state.keptIds],
+    recentActivityIds: state.recentActivityIds,
   };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -65,6 +71,7 @@ type RunStore = {
   sessionDate: string;
   run: DayRun | null;
   keptIds: Set<string>;
+  recentActivityIds: string[];
   ensureCurrentDay: () => void;
   setRun: (run: DayRun) => void;
   rerollActivity: (updated: GeneratedActivity) => void;
@@ -79,17 +86,28 @@ export const useRunStore = create<RunStore>((set, get) => ({
   sessionDate: initial?.sessionDate ?? getTodayKey(),
   run: initial?.run ?? null,
   keptIds: new Set(initial?.keptIds ?? []),
+  recentActivityIds: initial?.recentActivityIds ?? [],
 
   ensureCurrentDay: () => {
     const today = getTodayKey();
     if (get().sessionDate === today) return;
 
     localStorage.removeItem(STORAGE_KEY);
-    set({ sessionDate: today, run: null, keptIds: new Set() });
+    set({
+      sessionDate: today,
+      run: null,
+      keptIds: new Set(),
+      recentActivityIds: [],
+    });
   },
 
   setRun: (run) => {
-    const next = { sessionDate: getTodayKey(), run, keptIds: new Set<string>() };
+    const next = {
+      sessionDate: getTodayKey(),
+      run,
+      keptIds: new Set<string>(),
+      recentActivityIds: run.activities.map((a) => a.id).slice(-10),
+    };
     set(next);
     persistSession(next);
   },
@@ -103,13 +121,16 @@ export const useRunStore = create<RunStore>((set, get) => ({
           a.timeSlot === updated.timeSlot ? updated : a
         ),
       };
+      const recentActivityIds = [...state.recentActivityIds, updated.id].slice(-10);
       persistSession({
         sessionDate: state.sessionDate,
         run: nextRun,
         keptIds: state.keptIds,
+        recentActivityIds,
       });
       return {
         run: nextRun,
+        recentActivityIds,
       };
     }),
 
@@ -124,6 +145,7 @@ export const useRunStore = create<RunStore>((set, get) => ({
         sessionDate: state.sessionDate,
         run: nextRun,
         keptIds: state.keptIds,
+        recentActivityIds: state.recentActivityIds,
       });
       return {
         run: nextRun,
@@ -138,12 +160,13 @@ export const useRunStore = create<RunStore>((set, get) => ({
         sessionDate: state.sessionDate,
         run: state.run,
         keptIds: next,
+        recentActivityIds: state.recentActivityIds,
       });
       return { keptIds: next };
     }),
 
   clearRun: () => {
     localStorage.removeItem(STORAGE_KEY);
-    set({ run: null, keptIds: new Set() });
+    set({ run: null, keptIds: new Set(), recentActivityIds: [] });
   },
 }));

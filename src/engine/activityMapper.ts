@@ -2,6 +2,11 @@ import type { Activity, GeneratedActivity, GroupDetails, TimeSlot } from "../typ
 import { applyChaos } from "./chaosEngine";
 
 function supportsGroup(activity: Activity, group: GroupDetails): boolean {
+  // Adults-only groups are treated as least restrictive.
+  if (group.adults >= 2 && group.teenagers === 0 && group.kids === 0) {
+    return true;
+  }
+
   const rules = activity.groupSuitability ?? {
     adults: true,
     teenagers: true,
@@ -24,12 +29,13 @@ export function remapActivity(
   excludeIds: string[],
   chaosLevel: number,
   groupDetails: GroupDetails,
-  ignoredIds: Set<string> = new Set()
+  ignoredIds: Set<string> = new Set(),
+  useWholeDeck: boolean = false
 ): GeneratedActivity | null {
   const excluded = new Set(excludeIds);
   const candidates = deck.filter(
     (a) =>
-      a.timeSlots.includes(slot) &&
+      (useWholeDeck || a.timeSlots.includes(slot)) &&
       !excluded.has(a.id) &&
       supportsGroup(a, groupDetails) &&
       !ignoredIds.has(a.id)
