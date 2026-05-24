@@ -29,7 +29,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <TopMenu />
-      <AppRoutes />
+      <div className="app-routes">
+        <AppRoutes />
+      </div>
     </BrowserRouter>
   );
 }

@@ -68,7 +68,7 @@ export function HomePage() {
   return (
     <main className="home-page">
       <header className="home-page__header">
-        <h1>City Run Generator</h1>
+        <h1>Plan Your Day</h1>
         <p>Generate a perfect day in your chosen city.</p>
       </header>
 

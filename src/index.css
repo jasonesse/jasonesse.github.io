@@ -38,104 +38,157 @@ body {
 }
 
 /* ── Top Menu ── */
-.top-menu {
-  position: fixed;
+.top-menu__bar {
+  position: sticky;
   top: 0;
-  left: 0;
-  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.55rem 0.2rem;
+  margin-bottom: 0.65rem;
+  background: rgba(15, 15, 15, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 70;
 }
 
 .top-menu__trigger {
-  position: fixed;
-  top: 0.8rem;
-  left: 0.8rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background: rgba(26, 26, 26, 0.94);
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
   color: var(--color-text);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  z-index: 62;
   cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.top-menu__brand {
+  color: var(--color-accent);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .top-menu__backdrop {
   position: fixed;
   inset: 0;
   border: none;
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(0, 0, 0, 0.45);
   opacity: 0;
   pointer-events: none;
   transition: opacity 220ms ease;
-  z-index: 60;
+  z-index: 62;
 }
 
-.top-menu__panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100dvh;
-  width: min(82vw, 20rem);
-  background: var(--color-card);
-  border-right: 1px solid var(--color-border);
-  padding: 1rem 0.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  transform: translateX(-102%);
-  transition: transform 240ms ease;
-  z-index: 61;
-}
-
-.top-menu.is-open .top-menu__panel {
-  transform: translateX(0);
-}
-
-.top-menu.is-open .top-menu__backdrop {
+.top-menu__backdrop.is-open {
   opacity: 1;
   pointer-events: auto;
 }
 
-.top-menu__panel-header {
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 17rem;
+  padding: 4.25rem 0.65rem 0.75rem;
+  background: #161616;
+  border-right: 1px solid var(--color-border);
+  transform: translateX(-102%);
+  transition: transform 220ms ease;
+  z-index: 64;
+}
+
+.top-menu.is-open {
+  transform: translateX(0);
+}
+
+.top-menu__panel {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.45rem;
-  padding: 0 0.35rem;
-}
-
-.top-menu__panel-header p {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-muted);
-}
-
-.top-menu__close {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-text);
-  font-size: 1.25rem;
-  line-height: 1;
-  cursor: pointer;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .top-menu__link {
   color: var(--color-text);
   text-decoration: none;
-  padding: 0.7rem 0.75rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 999px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.top-menu__icon {
+  width: 1.1rem;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.top-menu__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .top-menu__link:hover {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.top-menu__link.is-active {
+  background: rgba(244, 162, 97, 0.2);
+  color: #ffd8b5;
+}
+
+.app-routes {
+  transition: margin-left 220ms ease;
+}
+
+@media (max-width: 420px) {
+  .top-menu__brand {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .top-menu {
+    transform: translateX(0);
+    width: 16rem;
+  }
+
+  .top-menu.is-collapsed {
+    width: 4.6rem;
+  }
+
+  .top-menu.is-collapsed .top-menu__label {
+    display: none;
+  }
+
+  .top-menu.is-collapsed .top-menu__link {
+    justify-content: center;
+    padding-inline: 0.45rem;
+  }
+
+  .top-menu__backdrop {
+    display: none;
+  }
+
+  .app-routes {
+    margin-left: 16rem;
+  }
+
+  .top-menu.is-collapsed + .app-routes {
+    margin-left: 4.6rem;
+  }
 }
 
 /* ── Buttons ── */
@@ -280,7 +333,7 @@ body {
 
 /* ── Run Page ── */
 .run-page { display: flex; flex-direction: column; gap: 1rem; }
-.run-page__title { font-size: 1.5rem; color: var(--color-accent); padding-top: 1rem; }
+.run-page__title { font-size: 1.5rem; color: var(--color-accent); }
 .run-page__city-image { max-height: 180px; }
 
 /* ── Day Timeline ── */
