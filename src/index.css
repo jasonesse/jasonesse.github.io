@@ -155,6 +155,39 @@ body {
   -moz-appearance: number-input;
 }
 
+.group-spinner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+
+.group-spinner input {
+  width: 100%;
+}
+
+.group-spinner__controls {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.2rem;
+}
+
+.group-spinner__btn {
+  min-width: 1.7rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text);
+  border-radius: 6px;
+  line-height: 1;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.group-spinner__btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .city-image {
   width: 100%;
   max-height: 220px;

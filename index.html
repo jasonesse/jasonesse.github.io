@@ -6,6 +6,20 @@
     <meta name="theme-color" content="#f4a261" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script>
+      (function () {
+        const query = window.location.search;
+        if (!query || query.indexOf("?p=") !== 0) return;
+
+        const encodedPath = query.slice(3).split("&")[0] || "/";
+        const encodedQuery = (query.split("&q=")[1] || "").replace(/~and~/g, "&");
+        const pathname = decodeURIComponent(encodedPath);
+        const search = encodedQuery ? "?" + decodeURIComponent(encodedQuery) : "";
+        const hash = window.location.hash || "";
+
+        window.history.replaceState(null, "", pathname + search + hash);
+      })();
+    </script>
     <title>City Run Generator</title>
   </head>
   <body>

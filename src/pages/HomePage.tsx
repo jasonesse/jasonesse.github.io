@@ -29,6 +29,13 @@ export function HomePage() {
     setGroupDetails((prev) => ({ ...prev, [key]: safe }));
   }
 
+  function adjustGroupCount(key: keyof GroupDetails, delta: number) {
+    setGroupDetails((prev) => {
+      const next = Math.max(0, (prev[key] ?? 0) + delta);
+      return { ...prev, [key]: next };
+    });
+  }
+
   async function startRun() {
     setLoading(true);
     setError(null);
@@ -77,36 +84,96 @@ export function HomePage() {
           <div className="group-details__grid">
             <label>
               Adults
-              <input
-                type="number"
-                min={0}
-                step={1}
-                inputMode="numeric"
-                value={groupDetails.adults}
-                onChange={(e) => setGroupCount("adults", e.target.value)}
-              />
+              <div className="group-spinner">
+                <input
+                  type="number"
+                  min={0}
+                  step={1}
+                  inputMode="numeric"
+                  value={groupDetails.adults}
+                  onChange={(e) => setGroupCount("adults", e.target.value)}
+                />
+                <div className="group-spinner__controls">
+                  <button
+                    type="button"
+                    className="group-spinner__btn"
+                    onClick={() => adjustGroupCount("adults", 1)}
+                    aria-label="Increase adults"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    className="group-spinner__btn"
+                    onClick={() => adjustGroupCount("adults", -1)}
+                    aria-label="Decrease adults"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
             </label>
             <label>
               Teenagers
-              <input
-                type="number"
-                min={0}
-                step={1}
-                inputMode="numeric"
-                value={groupDetails.teenagers}
-                onChange={(e) => setGroupCount("teenagers", e.target.value)}
-              />
+              <div className="group-spinner">
+                <input
+                  type="number"
+                  min={0}
+                  step={1}
+                  inputMode="numeric"
+                  value={groupDetails.teenagers}
+                  onChange={(e) => setGroupCount("teenagers", e.target.value)}
+                />
+                <div className="group-spinner__controls">
+                  <button
+                    type="button"
+                    className="group-spinner__btn"
+                    onClick={() => adjustGroupCount("teenagers", 1)}
+                    aria-label="Increase teenagers"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    className="group-spinner__btn"
+                    onClick={() => adjustGroupCount("teenagers", -1)}
+                    aria-label="Decrease teenagers"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
             </label>
             <label>
               Kids
-              <input
-                type="number"
-                min={0}
-                step={1}
-                inputMode="numeric"
-                value={groupDetails.kids}
-                onChange={(e) => setGroupCount("kids", e.target.value)}
-              />
+              <div className="group-spinner">
+                <input
+                  type="number"
+                  min={0}
+                  step={1}
+                  inputMode="numeric"
+                  value={groupDetails.kids}
+                  onChange={(e) => setGroupCount("kids", e.target.value)}
+                />
+                <div className="group-spinner__controls">
+                  <button
+                    type="button"
+                    className="group-spinner__btn"
+                    onClick={() => adjustGroupCount("kids", 1)}
+                    aria-label="Increase kids"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    className="group-spinner__btn"
+                    onClick={() => adjustGroupCount("kids", -1)}
+                    aria-label="Decrease kids"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
             </label>
           </div>
         </div>
