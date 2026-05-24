@@ -6,14 +6,16 @@ import { CityImage } from "../components/CityImage";
 import { loadCity } from "../engine/cityLoader";
 import { generateDay } from "../engine/generateDay";
 import { useRunStore } from "../state/useRunStore";
+import { useUserStore } from "../state/useUserStore";
 import { trackEvent } from "../analytics/eventTracker";
 import type { GroupDetails } from "../types";
 import { getIgnoredActivityIdsByCity } from "../history/ignoredActivitiesCookie";
 import { getRecentActivityIdsByCity } from "../history/recentActivityHistory";
 
 export function HomePage() {
-  const [city, setCity] = useState("montreal");
-  const [chaos, setChaos] = useState(50);
+  const city = useUserStore((s) => s.preferredCity);
+  const setPreferredCity = useUserStore((s) => s.setPreferredCity);
+  const [chaos, setChaos] = useState(20);
   const [groupDetails, setGroupDetails] = useState<GroupDetails>({
     adults: 2,
     teenagers: 0,
@@ -79,7 +81,7 @@ export function HomePage() {
       />
 
       <section className="home-page__controls">
-        <CitySelector value={city} onChange={setCity} />
+        <CitySelector value={city} onChange={setPreferredCity} />
         <ChaosSlider value={chaos} onChange={setChaos} />
         <div className="group-details">
           <p className="group-details__title">Group Details</p>

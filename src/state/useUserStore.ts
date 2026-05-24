@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 type UserStore = {
   preferredCity: string;
@@ -7,9 +8,20 @@ type UserStore = {
   setDefaultChaos: (level: number) => void;
 };
 
-export const useUserStore = create<UserStore>((set) => ({
-  preferredCity: "montreal",
-  defaultChaos: 50,
-  setPreferredCity: (city) => set({ preferredCity: city }),
-  setDefaultChaos: (level) => set({ defaultChaos: level }),
-}));
+export const useUserStore = create<UserStore>()(
+  persist(
+    (set) => ({
+      preferredCity: "montreal",
+      defaultChaos: 20,
+      setPreferredCity: (city) => set({ preferredCity: city }),
+      setDefaultChaos: (level) => set({ defaultChaos: level }),
+    }),
+    {
+      name: "crg_user_prefs_v1",
+      partialize: (state) => ({
+        preferredCity: state.preferredCity,
+        defaultChaos: state.defaultChaos,
+      }),
+    }
+  )
+);
