@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CitySelector } from "../components/CitySelector";
 import { ChaosSlider } from "../components/ChaosSlider";
@@ -11,10 +11,15 @@ import { trackEvent } from "../analytics/eventTracker";
 import type { GroupDetails } from "../types";
 import { getIgnoredActivityIdsByCity } from "../history/ignoredActivitiesCookie";
 import { getRecentActivityIdsByCity } from "../history/recentActivityHistory";
+import { getFallbackCityByKey, loadCityCatalog } from "../cities/cityCatalog";
 
 export function HomePage() {
   const city = useUserStore((s) => s.preferredCity);
   const setPreferredCity = useUserStore((s) => s.setPreferredCity);
+  const [cities, setCities] = useState(() => {
+    const fallback = getFallbackCityByKey(city);
+    return fallback ? [{ key: fallback.key, label: fallback.label }] : [];
+  });
   const [chaos, setChaos] = useState(20);
   const [groupDetails, setGroupDetails] = useState<GroupDetails>({
     adults: 2,
@@ -25,6 +30,27 @@ export function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const setRun = useRunStore((s) => s.setRun);
   const nav = useNavigate();
+
+  useEffect(() => {
+    let cancelled = false;
+
+    loadCityCatalog()
+      .then((catalog) => {
+        if (cancelled) return;
+        setCities(catalog.map((entry) => ({ key: entry.key, label: entry.label })));
+
+        if (catalog.length > 0 && !catalog.some((entry) => entry.key === city)) {
+          setPreferredCity(catalog[0].key);
+        }
+      })
+      .catch(() => {
+        // Keep fallback catalog only.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [city, setPreferredCity]);
 
   function setGroupCount(key: keyof GroupDetails, value: string) {
     const parsed = Number(value);
@@ -81,7 +107,7 @@ export function HomePage() {
       />
 
       <section className="home-page__controls">
-        <CitySelector value={city} onChange={setPreferredCity} />
+        <CitySelector value={city} cities={cities} onChange={setPreferredCity} />
         <ChaosSlider value={chaos} onChange={setChaos} />
         <div className="group-details">
           <p className="group-details__title">Group Details</p>

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { getFallbackCityByKey, loadCityCatalog } from "../cities/cityCatalog";
 
 type Props = {
   city: string;
@@ -6,23 +7,33 @@ type Props = {
   alt?: string;
 };
 
-const EXTENSIONS = ["jpg", "jpeg", "png", "webp", "avif"];
-
-function toCitySlug(city: string): string {
-  return city.trim().toLowerCase().replace(/\s+/g, "-");
-}
-
 export function CityImage({ city, className = "", alt }: Props) {
-  const slug = useMemo(() => toCitySlug(city), [city]);
-  const [extIndex, setExtIndex] = useState(0);
+  const fallbackEntry = getFallbackCityByKey(city);
+  const [src, setSrc] = useState<string | null>(fallbackEntry?.imagePath ?? null);
 
   useEffect(() => {
-    setExtIndex(0);
-  }, [slug]);
+    let cancelled = false;
 
-  if (!slug || extIndex >= EXTENSIONS.length) return null;
+    setSrc(fallbackEntry?.imagePath ?? null);
 
-  const src = `/city-images/${slug}.${EXTENSIONS[extIndex]}`;
+    loadCityCatalog()
+      .then((catalog) => {
+        if (cancelled) return;
+        const entry = catalog.find((item) => item.key === city) ?? fallbackEntry;
+        setSrc(entry?.imagePath ?? null);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setSrc(fallbackEntry?.imagePath ?? null);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [city, fallbackEntry?.imagePath]);
+
+  if (!src) return null;
 
   return (
     <img
@@ -30,7 +41,6 @@ export function CityImage({ city, className = "", alt }: Props) {
       src={src}
       alt={alt ?? `${city} preview`}
       loading="lazy"
-      onError={() => setExtIndex((i) => i + 1)}
     />
   );
 }

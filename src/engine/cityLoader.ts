@@ -1,4 +1,9 @@
 import type { CityDeck } from "../types";
+import {
+  getFallbackCityByKey,
+  loadCityCatalog,
+  normalizeCityKey,
+} from "../cities/cityCatalog";
 
 const CACHE_TTL_MS = 1_000;
 
@@ -9,40 +14,11 @@ type CacheEntry = {
 
 const cityCache = new Map<string, CacheEntry>();
 
-function getGithubRepoCandidates(): string[] {
-  if (typeof window === "undefined") return ["jasonesse/jasonesse.github.io"];
+async function getUrlCandidates(cityKey: string): Promise<string[]> {
+  const fromCatalog = (await loadCityCatalog()).find((entry) => entry.key === cityKey);
+  const fallback = getFallbackCityByKey(cityKey);
 
-  const host = window.location.hostname.toLowerCase();
-  if (!host.endsWith(".github.io")) {
-    return ["jasonesse/jasonesse.github.io"];
-  }
-
-  const user = host.split(".")[0];
-  const firstPath = window.location.pathname.split("/").filter(Boolean)[0];
-
-  const candidates = new Set<string>([`${user}/${user}.github.io`]);
-  if (firstPath) {
-    candidates.add(`${user}/${firstPath}`);
-  }
-
-  return [...candidates];
-}
-
-function getUrlCandidates(cityKey: string): string[] {
-  const fileName = `${cityKey}.json`;
-  const cacheBuster = `v=${Math.floor(Date.now() / CACHE_TTL_MS)}`;
-  const repos = getGithubRepoCandidates();
-  const isLocalDev =
-    typeof window !== "undefined" &&
-    ["localhost", "127.0.0.1"].includes(window.location.hostname.toLowerCase());
-
-  const remote = repos.flatMap((repo) => [
-    `https://raw.githubusercontent.com/${repo}/main/public/${fileName}?${cacheBuster}`,
-    `https://raw.githubusercontent.com/${repo}/main/${fileName}?${cacheBuster}`,
-  ]);
-
-  const local = [`/${fileName}`];
-  return isLocalDev ? [...local, ...remote] : [...remote, ...local];
+  return [...new Set([fromCatalog?.jsonPath, fallback?.jsonPath].filter(Boolean))] as string[];
 }
 
 async function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
@@ -66,13 +42,13 @@ function isCityDeck(value: unknown): value is CityDeck {
 }
 
 export async function loadCity(city: string): Promise<CityDeck> {
-  const cityKey = city.trim().toLowerCase();
+  const cityKey = normalizeCityKey(city);
   const cached = cityCache.get(cityKey);
   if (cached && Date.now() - cached.loadedAt < CACHE_TTL_MS) {
     return cached.deck;
   }
 
-  const urls = getUrlCandidates(cityKey);
+  const urls = await getUrlCandidates(cityKey);
 
   for (const url of urls) {
     try {

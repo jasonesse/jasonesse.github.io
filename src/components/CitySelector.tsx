@@ -1,15 +1,10 @@
 type Props = {
   value: string;
+  cities: Array<{ key: string; label: string }>;
   onChange: (city: string) => void;
 };
 
-const CITIES = [
-  { value: "montreal", label: "Montreal" },
-  { value: "rome", label: "Rome" },
-  { value: "barcelona", label: "Barcelona" },
-];
-
-export function CitySelector({ value, onChange }: Props) {
+export function CitySelector({ value, cities, onChange }: Props) {
   return (
     <div className="city-selector">
       <label htmlFor="city-select">Choose a city</label>
@@ -17,10 +12,11 @@ export function CitySelector({ value, onChange }: Props) {
         id="city-select"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        disabled={cities.length === 0}
       >
-        {CITIES.map((c) => (
-          <option key={c.value} value={c.value}>
-            {c.label}
+        {cities.map((city) => (
+          <option key={city.key} value={city.key}>
+            {city.label}
           </option>
         ))}
       </select>
